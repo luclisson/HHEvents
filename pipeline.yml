@@ -1,0 +1,21 @@
+stages:
+  - name: Build
+    jobs:
+      - job: BuildJob
+        steps:
+          - script: echo "Building the project..."
+            displayName: 'Build Step'
+
+  - name: Test
+    jobs:
+      - job: TestJob
+        steps:
+          - script: echo "Running tests..."
+            displayName: 'Test Step'
+
+  - name: Deploy
+    jobs:
+      - job: DeployJob
+        steps:
+          - script: echo "Deploying the project..."
+            displayName: 'Deploy Step'
