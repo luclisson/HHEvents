@@ -1,114 +1,161 @@
-# HHEvents
-
 # Hamburg Events Hub
 
+![Hamburg Skyline](https://example.com/hamburg-skyline.jpg)
+
 [![CI Pipeline](https://github.com/your-repo/actions/workflows/ci.yml/badge.svg)](https://github.com/your-repo/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 📌 Inhaltsverzeichnis
+- [Über das Projekt](#über-das-projekt)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Projektstruktur](#projektstruktur)
+- [Datenquellen](#datenquellen)
+- [Scrum Prozess](#scrum-prozess)
+- [Nächste Schritte](#nächste-schritte)
+- [Erweiterungsideen](#erweiterungsideen)
+- [Mitwirkende](#mitwirkende)
+- [Lizenz](#lizenz)
+
+## 🌟 Über das Projekt
+
+Hamburg Events Hub ist eine zentrale Plattform, die alle Events in Hamburg an einem Ort zusammenführt. Unser Ziel ist es, Hamburgern und Besuchern einen umfassenden Überblick über das vielfältige Veranstaltungsangebot der Stadt zu bieten.
+
+## 🎉 Features
+
+- Aggregation von Events aus verschiedenen Quellen (Eventbrite, Tunnel.de, Übel und Gefährlich, etc.)
+- Interaktive Karte mit Event-Locations
+- Filtermöglichkeiten nach Datum, Kategorie und Entfernung
+- Personalisierte Event-Empfehlungen
+- Echtzeit-Updates für spontane Veranstaltungen
+
+## 🛠️ Tech Stack
+
+### Frontend:
+- Next.js 14 (React)
+- TypeScript
+- Zustand für State Management
+- MapLibre GL JS für Kartendarstellung
+- Shadcn UI für UI-Komponenten
+- Framer Motion für Animationen
+
+### Backend:
+- Node.js mit Express
+- PostgreSQL + PostGIS für Geodaten
+- Redis für Caching
+- Strapi CMS für manuelle Event-Einträge
+- Elasticsearch für Suchfunktionalität
+
+### DevOps:
+- Docker & Docker Compose
+- GitHub Actions für CI/CD
 
 ## 🚀 Getting Started
 
-7. **Umgebung einrichten:**
-```
-cp .env.example .env
-docker-compose up -d
-```
+1. **Repository klonen:**
+git clone https://github.com/your-repo/hamburg-events-hub.git
+cd hamburg-events-hub
 
-8. **Datenpipeline starten:**
-```
-# Scrapy Spider ausführen
+
+2. **Umgebungsvariablen einrichten:**
+cp .env.example .env
+
+Fülle die notwendigen Werte in der `.env` Datei aus.
+
+3. **Docker-Container starten:**
+docker-compose up -d
+
+
+4. **Abhängigkeiten installieren und Entwicklungsserver starten:**
+
+npm install
+npm run dev
+
+
+5. **Datenpipeline starten:**
 cd packages/scraping
 scrapy crawl eventbrite -O events.json
-```
 
-## 🛠️ Tech Stack
-- Frontend: Next.js 14, TypeScript, MapLibre
-- Backend: Node.js, PostgreSQL, Redis
-- DevOps: Docker, GitHub Actions
+## 📂 Projektstruktur
+hamburg-events/
+├── apps/
+│ ├── frontend/ # Next.js App
+│ │ ├── src/
+│ │ │ ├── features/
+│ │ │ ├── lib/
+│ │ │ └── styles/
+│ └── backend/ # Express API
+├── packages/
+│ ├── database/ # Prisma Schema
+│ ├── scraping/ # Scrapy Spiders
+│ └── cms/ # Strapi Customizations
+├── infrastructure/
+│ ├── docker/
+│ └── terraform/
+└── README.md
 
-## 📅 Scrum Prozess
-- Sprint Planning: Montag 10:00
-- Daily Standup: Täglich 15:00
-- Sprint Review: Freitag 12:00
+
 
 ## 🔍 Datenquellen
+
 | Quelle               | Methode        | Update-Intervall |
 |----------------------|----------------|-------------------|
 | Eventbrite           | Scrapy + API   | Stündlich         |
-| Konzerte.de          | Puppeteer      | Täglich           |
-| Stadt Hamburg Open Data | API       | Wöchentlich       |
+| Tunnel.de            | Puppeteer      | Täglich           |
+| Übel und Gefährlich  | API            | Täglich           |
+| Stadt Hamburg Open Data | API         | Wöchentlich       |
+
+## 📅 Scrum Prozess
+
+- **Product Owner:** Lykka
+- **Scrum Master:** Tim
+- **Entwicklungsteam:** Zoe, Luc
+
+**Sprint-Zyklus:**
+- Sprint Planning: Montag 10:00 Uhr
+- Daily Standup: Täglich 15:00 Uhr
+- Sprint Review: Freitag 12:00 Uhr
+- Sprint-Länge: 2 Wochen
+
+**Tools:**
+- Jira für Backlog Management
+- FigJam für Retrospektiven
+- GitHub Projects für Task Tracking
 
 ## 📈 Nächste Schritte
+
 - [ ] CI/CD Pipeline einrichten
-- [ ] Sentry für Error Tracking
-- [ ] i18n für internationale Nutzer
-```
+- [ ] Sentry für Error Tracking implementieren
+- [ ] i18n für internationale Nutzer einführen
+- [ ] Performance-Optimierung für mobile Endgeräte
+- [ ] Benutzer-Authentifizierung und Profilerstellung
 
 ## 💡 Erweiterungsideen
-- KI-basierte Personalisierung (Apache PredictionIO)
+
+- KI-basierte Personalisierung mit Apache PredictionIO
 - Ticket-Preisvergleich mit Web Scraping
 - Realtime Demo-Tracking über Twitter API
 - Barrierefreiheits-Check für Locations
-- Event-Empfehlungssystem (kollaboratives Filtern)
+- Event-Empfehlungssystem basierend auf kollaborativem Filtern
 
-Bei konkreten Fragen zur Implementierung einzelner Komponenten oder Anpassungen an eure speziellen Anforderungen stehe ich gerne für weitere Details zur Verfügung! 🚀
+## 👥 Mitwirkende
 
-Citations:
-[1] https://rossum.ai/blog/best-data-extraction-tools/
-[2] https://multilogin.com/blog/web-scraping-techniques/
-[3] https://atlan.com/data-pipeline-architecture/
-[4] https://legacy.reactjs.org/docs/faq-structure.html
-[5] https://5ly.co/blog/best-web-app-tech-stack/
-[6] https://www.joshwcomeau.com/react/file-structure/
-[7] https://www.launchnotes.com/blog/how-to-implement-scrum-a-step-by-step-guide
-[8] https://thedigitalprojectmanager.com/projects/pm-methodology/scrum-methodology-complete-guide/
-[9] https://www.cisin.com/coffee-break/awesome-tips-to-use-agile-scrum-methodology-in-web-development.html
-[10] https://airbyte.com/top-etl-tools-for-sources/top-data-extraction-tools
-[11] https://www.matillion.com/learn/blog/how-to-build-a-data-pipeline
-[12] https://www.aha.io/roadmapping/guide/agile/how-to-implement-scrum
-[13] https://zistemo.com/blog/key-strategies-for-effective-scrumming-project-management/
-[14] https://steps.tn/how-to-use-scrum-in-web-development/
-[15] https://learn.microsoft.com/en-us/data-engineering/playbook/articles/pipeline-reliability
-[16] https://apify.com
-[17] https://www.promptcloud.com/blog/the-ultimate-guide-to-web-scraping-tools-techniques-and-use-cases/
-[18] https://www.ascend.io/blog/data-pipeline-best-practices/
-[19] https://www.projectpro.io/article/data-pipeline-tools/946
-[20] https://www.imperva.com/learn/application-security/data-scraping/
-[21] https://airbyte.com/data-engineering-resources/data-pipeline-architecture
-[22] https://www.lokad.com/data-extraction-pipeline/
-[23] https://en.wikipedia.org/wiki/Web_scraper
-[24] https://www.montecarlodata.com/blog-data-engineering-pipeline-guide/
-[25] https://forage.ai/web-data-extraction-services/
-[26] https://www.octoparse.com/blog/introduction-to-web-scraping-techniques-and-tools
-[27] https://www.youtube.com/watch?v=_bIJoOriBxA
-[28] https://www.developerway.com/posts/react-project-structure
-[29] https://www.reddit.com/r/reactjs/comments/153vjsf/react_folder_structure_best_practice_s/
-[30] https://www.reddit.com/r/programming/comments/1f9v0mk/best_tech_stack_for_web_development_in_2025/
-[31] https://www.reddit.com/r/react/comments/123tobn/what_are_some_good_ways_to_structure_react/
-[32] https://blog.webdevsimplified.com/2022-07/react-folder-structure/
-[33] https://medium.com/codex/my-2025-tech-stack-tools-tech-im-using-this-year-ca06af68b8da
-[34] https://www.youtube.com/watch?v=8n_uPCQS0lM
-[35] https://www.robinwieruch.de/react-tech-stack/
-[36] https://maxrozen.com/guidelines-improve-react-app-folder-structure
-[37] https://www.nobledesktop.com/classes-near-me/blog/best-web-development-stacks
-[38] https://scrimba.com/articles/react-project-structure/
-[39] https://www.index.dev/blog/essential-tools-full-stack-development
-[40] https://www.huptechweb.com/agile-scrum-for-web-development/
-[41] https://fabrity.com/blog/how-to-implement-scrum-in-10-steps/
-[42] https://www.planview.com/resources/guide/what-is-scrum/scrum-best-practices-teams/
-[43] https://www.scrum.org/resources/blog/working-web-development-company-using-scrum
-[44] https://www.forecast.app/blog/implementation-of-scrum-7-steps
-[45] https://www.altexsoft.com/whitepapers/agile-project-management-best-practices-and-methodologies/
-[46] https://de.linkedin.com/advice/3/how-can-you-use-scrum-front-end-development-skills-web-development-udiwf?lang=de
-[47] https://www.atlassian.com/agile/scrum
-[48] https://www.scrum.org/resources/agile-project-management-scrum-developer-best-practices
-[49] https://www.brightlabs.com.au/insights/scrum-methodology-in-web-development
-[50] https://www.nimblework.com/agile/scrum-methodology/
-[51] https://learn.microsoft.com/en-us/azure/devops/boards/best-practices-agile-project-management?view=azure-devops
-[52] https://www.promptcloud.com/blog/what-is-data-scraping-techniques-tools-and-use-cases/
-[53] https://www.integrate.io/blog/data-extraction-tools/
-[54] https://research.aimultiple.com/scraping-techniques/
-[55] https://www.robinwieruch.de/react-folder-structure/
-[56] https://www.imaginarycloud.com/blog/tech-stack-software-development
-[57] https://dev.to/itswillt/folder-structures-in-react-projects-3dp8
-[58] https://dev.to/rayenmabrouk/best-tech-stack-for-startups-in-2025-5h2l
-[59] https://www.projektron.de/en/blog/details/scrum-software-development-3592/
-[60] https://www.knowledgehut.com/blog/agile/great-scrum-master-tips-best-practices
+- Tim - Scrum Master & Backend-Entwicklung
+- Lykka - Product Owner & UX Design
+- Zoe - Frontend-Entwicklung
+- Luc - Datenintegration & DevOps
+
+Wir freuen uns über Beiträge! Bitte lesen Sie [CONTRIBUTING.md](CONTRIBUTING.md) für Details zu unserem Code of Conduct und dem Prozess für das Einreichen von Pull Requests.
+
+## 📄 Lizenz
+
+Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Details finden Sie in der [LICENSE](LICENSE) Datei.
+
+---
+
+Erstellt mit ❤️ in Hamburg
+
+
+
+
