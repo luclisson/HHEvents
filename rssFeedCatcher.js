@@ -1,34 +1,35 @@
-const { DOMParser } = require('xmldom'); // Verwenden Sie xmldom für XML-Parsing
-const fetch = require('node-fetch'); // Importieren Sie node-fetch für fetch
+const { DOMParser } = require('xmldom');
+const fetch = require('node-fetch');
 
 const feedUrls = [
     'https://investor.eventbrite.com/rss/pressrelease.aspx',
     'https://www.rss-verzeichnis.de/freizeit-unterhaltung-und-bekleidung/veranstaltungen/118330-eventpicker-veranstaltungen-im-umkreis-finden',
-    'https://www.eventbrite.com/', // ACHTUNG: Ist keine RSS-URL
+    'https://www.eventbrite.com/',
     'https://feedfry.com/rss/11efe4785bf85274aca3d8f330f65163'
 ];
 
 async function fetchRssFeed(url) {
     try {
         const response = await fetch(url);
-        const text = await response.text();
-
-        // Prüfen, ob es sich um HTML handelt (eventbrite.com liefert HTML)
-        if (url === 'https://www.eventbrite.com/') {
-            console.warn("Eventbrite.com ist keine RSS-Feed-URL. Überspringe...");
+        const contentType = response.headers.get('content-type');
+        
+        if (!contentType || !contentType.includes('xml')) {
+            console.warn(`Skipping non-RSS URL: ${url}`);
             return [];
         }
 
+        const text = await response.text();
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(text, 'text/xml'); // text/xml erzwingen
-        const items = xmlDoc.getElementsByTagName('item'); // getElementsByTagName nutzen
+        const xmlDoc = parser.parseFromString(text, 'text/xml');
+        const items = xmlDoc.getElementsByTagName('item');
+        
         return Array.from(items).map(item => ({
-            title: item.getElementsByTagName('title')[0]?.textContent || 'Kein Titel', // getElementsByTagName nutzen
-            link: item.getElementsByTagName('link')[0]?.textContent || 'Kein Link', // getElementsByTagName nutzen
-            pubDate: item.getElementsByTagName('pubDate')[0]?.textContent || 'Kein Datum' // getElementsByTagName nutzen
+            title: item.getElementsByTagName('title')[0]?.textContent || 'No Title',
+            link: item.getElementsByTagName('link')[0]?.textContent || 'No Link',
+            pubDate: item.getElementsByTagName('pubDate')[0]?.textContent || 'No Date'
         }));
     } catch (error) {
-        console.error(`Fehler beim Abrufen von ${url}:`, error);
+        console.error(`Error fetching ${url}:`, error.message);
         return [];
     }
 }
