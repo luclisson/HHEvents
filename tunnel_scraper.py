@@ -1,17 +1,18 @@
-# Importieren der benötigten Selenium-Module und Funktionen
-from selenium import webdriver  # Hauptmodul für die Browsersteuerung
-from selenium.webdriver.edge.service import Service  # Dienst für den Edge-Treiber
-from selenium.webdriver.edge.options import Options  # Optionen für den Edge-Browser
-from selenium.webdriver.common.by import By  # Lokalisierungsstrategien für Elemente
-from selenium.webdriver.support.ui import WebDriverWait  # Explizites Warten auf Elemente
-from selenium.webdriver.support import expected_conditions as EC  # Bedingungen für das Warten
-from webdriver_manager.microsoft import EdgeChromiumDriverManager  # Automatische Verwaltung des Edge-Treibers
-import time  # Für Verzögerungen
+from selenium import webdriver
+from selenium.webdriver.edge.service import Service
+from selenium.webdriver.edge.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from bs4 import BeautifulSoup
+import re
+import time
 
 def scrape_tunnel_events(url):
     # Konfiguration des Edge-Browsers
     edge_options = Options()
-    # edge_options.add_argument("--headless")  # Auskommentiert: Würde den Browser im Hintergrund ausführen
+    # edge_options.add_argument("--headless")  # Optional: Headless-Modus aktivieren
 
     # Einrichten des Edge-Treibers mit automatischer Verwaltung
     service = Service(EdgeChromiumDriverManager().install())
@@ -28,14 +29,12 @@ def scrape_tunnel_events(url):
         def scroll_to_bottom():
             last_height = driver.execute_script("return document.body.scrollHeight")
             while True:
-                # Scrolle bis zum Ende der Seite
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(2)  # Warte 2 Sekunden, damit neue Inhalte geladen werden können
                 
-                # Überprüfe, ob neue Inhalte geladen wurden
                 new_height = driver.execute_script("return document.body.scrollHeight")
                 if new_height == last_height:
-                    break  # Wenn keine neuen Inhalte geladen wurden, beende das Scrollen
+                    break
                 last_height = new_height
 
         # Führe das Scrollen aus
@@ -49,23 +48,71 @@ def scrape_tunnel_events(url):
         num_events = len(event_containers)
         print(f"Anzahl der gefundenen Event-Container: {num_events}")
 
+        events_data = []  # Liste zum Speichern aller Event-Daten
+
         # Durchlaufe alle gefundenen Event-Container
         for index, container in enumerate(event_containers, 1):
             try:
-                # Versuche, das Titelelement innerhalb des Containers zu finden
-                title_element = container.find_element(By.CSS_SELECTOR, "h2.event-title")
-                title = title_element.text.strip()  # Extrahiere den Text und entferne Leerzeichen
-                print(f"Titel {index}: {title}")
+                # Extrahiere den HTML-Inhalt des Containers mit BeautifulSoup
+                html_content = container.get_attribute('outerHTML')
+                soup = BeautifulSoup(html_content, 'html.parser')
+
+                event_data = {}
+
+                # Titel extrahieren
+                title_element = soup.find('h2', class_='event-title')
+                if title_element:
+                    event_data['title'] = title_element.text.strip()
+
+                # Ticket-Link extrahieren
+                ticket_button = soup.find('a', class_='no-after')
+                if ticket_button:
+                    event_data['ticket_link'] = ticket_button.get('href')
+
+                # Datum und Uhrzeit extrahieren
+                date_time_pattern = r'(\d{1,2}\.\s*\w+\s*\d{4}).*?(\d{2}:\d{2})'
+                date_time_match = re.search(date_time_pattern, soup.text, re.DOTALL)
+                if date_time_match:
+                    event_data['date'] = date_time_match.group(1).strip()
+                    event_data['time'] = date_time_match.group(2).strip()
+
+                # Ort extrahieren
+                location_pattern = r'📍(.+)'
+                location_match = re.search(location_pattern, soup.text)
+                if location_match:
+                    event_data['location'] = location_match.group(1).strip()
+                else:
+                    docks_match = re.search(r'DOCKS.*Hamburg', soup.text)
+                    if docks_match:
+                        event_data['location'] = docks_match.group(0).strip()
+
+                # Künstler extrahieren
+                artists = []
+                artist_elements = soup.find_all('p', string=lambda text: '★' in text if text else False)
+                for element in artist_elements:
+                    artists.extend([artist.strip() for artist in element.text.split('★') if artist.strip()])
+                event_data['artists'] = list(set(artists))
+
+                # Facebook-Event-Link extrahieren
+                fb_link_element = soup.find('a', string=lambda text: 'Facebook' in text if text else False)
+                if fb_link_element:
+                    event_data['facebook_link'] = fb_link_element.get('href')
+
+                events_data.append(event_data)  # Speichere die Daten des Events
+
             except Exception as e:
-                # Wenn ein Fehler auftritt, gib eine Fehlermeldung aus
-                print(f"Fehler beim Extrahieren des Titels für Event {index}: {str(e)}")
+                print(f"Fehler beim Extrahieren von Event {index}: {str(e)}")
+
+        # Ausgabe aller gesammelten Events
+        for event in events_data:
+            print("\n--- Event ---")
+            for key, value in event.items():
+                print(f"{key}: {value}")
 
     except Exception as e:
-        # Fange alle unerwarteten Fehler ab und gib sie aus
         print(f"Ein unerwarteter Fehler ist aufgetreten: {str(e)}")
 
     finally:
-        # Stelle sicher, dass der Browser immer geschlossen wird, auch wenn Fehler auftreten
         print("Schließe den Browser...")
         driver.quit()
 
@@ -74,5 +121,3 @@ url = 'https://www.tunnel.de/'
 
 # Führe die Scraping-Funktion aus
 scrape_tunnel_events(url)
-# In diesem Beispiel haben wir die Funktion `scrape_tunnel_events` erstellt, die das Web-Scraping von Event-Informationen auf der Tunnel-Website durchführt.
-# Wir verwenden das Selenium-Modul, um den Edge-Browser zu steuern und die dynamisch geladenen Inhalte zu erfassen.
