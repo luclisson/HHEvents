@@ -1,103 +1,62 @@
-from selenium import webdriver
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from bs4 import BeautifulSoup
-import re
+from base_scraper import BaseScraper
+from event import Event
 import time
 import logging
 
-def scrape_docks_events(url):
-    # Konfiguration des Edge-Browsers
-    edge_options = Options()
-    # edge_options.add_argument("--headless")  # Optional: Headless-Modus aktivieren
 
-    # Einrichten des Edge-Treibers mit automatischer Verwaltung
-    service = Service(EdgeChromiumDriverManager(log_level=logging.INFO).install())
-    driver = webdriver.Edge(service=service, options=edge_options)
-
-    print(f"Starte Web-Scraping von: {url}")
-    driver.get(url)  # Öffnet die angegebene URL im Browser
-
-    try:
-        # Einrichten eines WebDriverWait-Objekts für explizites Warten (max. 30 Sekunden)
-        wait = WebDriverWait(driver, 30)
-
-        # Definition einer Funktion zum Scrollen bis zum Ende der Seite
-        def scroll_to_bottom():
-            last_height = driver.execute_script("return document.body.scrollHeight")
-            while True:
-                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                time.sleep(2)  # Warte 2 Sekunden, damit neue Inhalte geladen werden können
-                
-                new_height = driver.execute_script("return document.body.scrollHeight")
-                if new_height == last_height:
-                    break
-                last_height = new_height
-
-        # Führe das Scrollen aus
-        scroll_to_bottom()
-        print("Scrolling abgeschlossen.")
-
-        # Suche nach allen Event-Containern auf der Seite
-        event_containers = wait.until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.col-xxl-4.col-xl-4.col-lg-4.col-md-6.col-12.mb-4"))
+class DocksScraper(BaseScraper):
+    def __init__(self, driver, page_type="docks"):
+        self.page_type = page_type
+        super().__init__(
+            driver=driver,
+            source_name="Docks Freiheit36" if page_type == "docks" else "Prinzenbar"
         )
-        num_events = len(event_containers)
-        print(f"Anzahl der gefundenen Event-Container: {num_events}")
 
-        events_data = []  # Liste zum Speichern aller Event-Daten
+    def click_next_page(self, current_page: int) -> bool:
+        try:
+            page_links = self.driver.find_elements(By.CSS_SELECTOR, "ul.pagination li.page-item")
+            next_page = current_page + 1
+            
+            if next_page <= len(page_links):
+                next_page_li = page_links[next_page - 1]
+                next_page_link = next_page_li.find_element(By.CSS_SELECTOR, "a.page-link")
+                self.driver.execute_script("arguments[0].click();", next_page_link)
+                time.sleep(2)  # Warte auf Laden der nächsten Seite
+                return True
+            
+            return False
+        
+        except Exception as e:
+            logging.error(f"Fehler bei der Paginierung auf Seite {current_page}: {str(e)}")
+            return False
 
-        # Durchlaufe alle gefundenen Event-Container
-        for index, container in enumerate(event_containers, 1):
+    def parse_event(self, container) -> Event:
+        try:
+            title = container.find_element(By.CSS_SELECTOR, 'h5.card-title').text.strip()
+            link_element = container.find_element(By.CSS_SELECTOR, 'a.btn-link')
+            link = link_element.get_attribute('href')
+            price = link_element.text.strip()
+            date_text = container.find_element(By.CSS_SELECTOR, 'p.card-text').text.strip()
+            date_parts = date_text.split('|')
+
             try:
-                event_data = {}
-
-                # Titel extrahieren
-                title_element = container.find_element(By.CSS_SELECTOR, 'h5.card-title')
-                if title_element:
-                    event_data['title'] = title_element.text.strip()
-
-                # Ticket-Link extrahieren
-                ticket_link_element = container.find_element(By.CSS_SELECTOR, 'a.btn-link')
-                if ticket_link_element:
-                    event_data['ticket_link'] = ticket_link_element.get_attribute('href')
-                    event_data['ticket_price'] = ticket_link_element.text.strip()
-
-                # Datum extrahieren
-                date_element = container.find_element(By.CSS_SELECTOR, 'p.card-text')
-                if date_element:
-                    date_text = date_element.text.strip()
-                    parts = date_text.split('|')
-                    if len(parts) > 1:
-                        event_data['event_type'] = parts[0].strip()
-                        event_data['date'] = parts[1].strip()
-                    else:
-                        event_data['date'] = date_text  # Fallback if no '|' is found
-
-                events_data.append(event_data)  # Speichere die Daten des Events
-
+                img_element = container.find_element(By.CSS_SELECTOR, 'img')
+                img_url = img_element.get_attribute('src')
             except Exception as e:
-                print(f"Fehler beim Extrahieren von Event {index}: {str(e)}")
+                img_url = None
 
-        # Ausgabe aller gesammelten Events
-        for event in events_data:
-            print("\n--- Event ---")
-            for key, value in event.items():
-                print(f"{key}: {value}")
+            return Event(
+                source=self.source_name,
+                source_url=self.driver.current_url,
+                title=title,
+                link=link,
+                event_date=date_parts[1].strip() if len(date_parts) > 1 else date_text,
+                event_type=date_parts[0].strip() if len(date_parts) > 1 else "Unbekannt",
+                price=price,
+                img_url=img_url
+            )
+        except Exception as e:
+            logging.error(f"Fehler beim Parsen eines Events: {str(e)}")
+            return None
 
-    except Exception as e:
-        print(f"Ein unerwarteter Fehler ist aufgetreten: {str(e)}")
-
-    finally:
-        print("Schließe den Browser...")
-        driver.quit()
-
-# URL der zu scrapenden Website
-url = 'https://docksfreiheit36.de/docks/'
-
-# Führe die Scraping-Funktion aus
-scrape_docks_events(url)

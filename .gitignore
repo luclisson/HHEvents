@@ -1,3 +1,5 @@
 test.py
 env.json
 webScrampe.py
+*.pyc
+docks_events.json
