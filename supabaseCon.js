@@ -7,7 +7,7 @@ const env = JSON.parse(envJson);
 const supabase = createClient(`${env.db_url}`, `${env.api_key}`) 
 
 
-async function insertDataToWebsitesTable(title, link, description, category, idFetch)
+async function insertDataToWebsitesTable(title, link, description, category)
 {
     const { error } = await supabase.from('websites').insert(
         {
@@ -15,8 +15,18 @@ async function insertDataToWebsitesTable(title, link, description, category, idF
             link: `${link}`,
             description: `${description}`,
             category: `${category}`,
-            idFetch: `${idFetch}`
-            // for me it looks like i could have a problem with adding multiple idFetch to one website
+        }
+    )
+}
+
+async function insertDataToFetchDataTable(price, date, duration, websiteID)
+{
+    const {error} = await supabase.insert(
+        {
+            price: `${price}`,
+            date: `${date}`,
+            duration: `${duration}`,
+            websiteid: `${websiteID}`
         }
     )
 }
