@@ -21,7 +21,7 @@ async function insertDataToWebsitesTable(title, link, description, category)
 
 async function insertDataToFetchDataTable(price, date, duration, websiteID)
 {
-    const {error} = await supabase.insert(
+    const {error} = await supabase.from("fetchdata").insert(
         {
             price: `${price}`,
             date: `${date}`,
@@ -30,15 +30,18 @@ async function insertDataToFetchDataTable(price, date, duration, websiteID)
         }
     )
 }
+//insertDataToWebsitesTable("testFromJS", "https:google.com", "just a test from the ide", "test")
+//insertDataToFetchDataTable("5",'22.02.2222',1, 3)
+
 //fetching data
 const { data, error } = await supabase
   .from('websites')
-  .select('*, fetchdata(*)'); 
+  .select('*'); 
  
 //printing data and some column from fetch data table
 console.log(data);
 let amountWebsites = data.length;
 for(let i = 0; i<amountWebsites;i++)
 {
-    console.log(data[i].fetchdata.date)
+    console.log(data[i])
 }
