@@ -35,13 +35,55 @@ async function insertDataToFetchDataTable(price, date, duration, websiteID)
 
 //fetching data
 const { data, error } = await supabase
-  .from('websites')
-  .select('*'); 
+  .from('fetchdata')
+  .select('*');
+  //need a join which fetches the website and the newest fetchData where websiteID=id
+
  
 //printing data and some column from fetch data table
+/*
 console.log(data);
 let amountWebsites = data.length;
 for(let i = 0; i<amountWebsites;i++)
 {
     console.log(data[i])
 }
+*/
+async function fetchLatestDataWebsite(websiteID)
+{
+    const {data , error1st} = await supabase
+                            .from('fetchdata')
+                            .select('id')
+                            .eq('websiteid', websiteID)//like WHERE websiteID= variable websiteID (only works on direct columns of that table)
+    
+    if (error1st)
+    {
+        console.error("error: ", error1st)
+    }
+    let latestFetchID =  data[data.length-1].id //potential bug issue but im assuming that the highest id
+                                                // is always at the end of the returned array
+
+    //second fetch to get the final result with the latest website fetch informatin
+    const {data: result , error: error2nd} = await supabase
+                            .from('websites')
+                            .select('*, fetchdata(*)')
+                            .eq('id', websiteID)
+                            .filter('fetchdata.id', 'eq', latestFetchID);//the result has to be data and error
+    if (error2nd)
+    {
+        console.error("error acured while fetching result: ", error2nd)
+    }
+    else
+    {
+        console.log("fetched the result successfully")
+    }
+    console.log(result)
+}
+fetchLatestDataWebsite(3)
+//todos: 
+/*
+check if event title already exists if not --> insert
+fetches in db
+if anount fetches per website is 60 delete all except one
+define test data until scraper py file is ready
+*/
