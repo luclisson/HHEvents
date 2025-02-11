@@ -1,0 +1,18 @@
+1739275047903	geckodriver	INFO	Listening on 127.0.0.1:63527
+1739275048057	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/ll/65jj62jj6sq8c9xjmv6g45l00000gn/T/rust_mozprofile1XwHUr"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1739275048490	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-disable-gpu"
+console.error: "Warning: unrecognized command line flag" "-disable-dev-shm-usage"
+1739275048802	Marionette	INFO	Listening on port 63540
+WebDriver BiDi listening on ws://127.0.0.1:63528
+1739275048932	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+JavaScript error: https://vernetztgegenrechts.hamburg/veranstaltungen-2/, line 342: ReferenceError: jQuery is not defined
+JavaScript error: https://vernetztgegenrechts.hamburg/veranstaltungen-2/, line 497: ReferenceError: jQuery is not defined
+1739275051239	Marionette	INFO	Stopped listening on port 63540
+JavaScript warning: https://vernetztgegenrechts.hamburg/wp-includes/js/jquery/jquery.min.js?ver=3.7.1, line 2: Script terminated by timeout at:
+dispatch@https://vernetztgegenrechts.hamburg/wp-includes/js/jquery/jquery.min.js?ver=3.7.1:2:39414
+add/v.handle@https://vernetztgegenrechts.hamburg/wp-includes/js/jquery/jquery.min.js?ver=3.7.1:2:38006
+
