@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@supabase/supabase-js": "^2.48.1",
     "html-dom-parser": "^5.0.13",
     "jsdom": "^26.0.0",
     "node-fetch": "^2.7.0",
