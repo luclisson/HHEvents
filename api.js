@@ -49,6 +49,5 @@ cron.schedule('30 01 * * *', async ()=>{
         method: 'GET'
     });
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
-    console.log(data)
-    
+    console.log(data) 
 })
