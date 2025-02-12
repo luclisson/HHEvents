@@ -1,9 +1,10 @@
+
 # Hamburg Events Hub
 
-![Hamburg Skyline](https://example.com/hamburg-skyline.jpg)
+Hamburg Events
 
-[![CI Pipeline](https://github.com/your-repo/actions/workflows/ci.yml/badge.svg)](https://github.com/your-repo/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[CI Pipeline
+[License: MIT
 
 ## 📌 Inhaltsverzeichnis
 - [Über das Projekt](#über-das-projekt)
@@ -20,142 +21,146 @@
 
 ## 🌟 Über das Projekt
 
-Hamburg Events Hub ist eine zentrale Plattform, die alle Events in Hamburg an einem Ort zusammenführt. Unser Ziel ist es, Hamburgern und Besuchern einen umfassenden Überblick über das vielfältige Veranstaltungsangebot der Stadt zu bieten.
+Hamburg Events Hub ist eine zentrale Plattform, die alle Events in Hamburg an einem Ort zusammenführt. Unser Ziel ist es, Hamburgern und Besuchern einen umfassenden Überblick über das vielfältige Veranstaltungsangebot der Stadt zu bieten. Der Fokus liegt auf einer effizienten Datenaggregation und einer benutzerfreundlichen Oberfläche.
 
 ## 🎉 Features
 
-- Aggregation von Events aus verschiedenen Quellen (Eventbrite, Tunnel.de, Übel und Gefährlich, etc.)
-- Interaktive Karte mit Event-Locations
-- Filtermöglichkeiten nach Datum, Kategorie und Entfernung
-- Personalisierte Event-Empfehlungen
-- Echtzeit-Updates für spontane Veranstaltungen
+- **Event-Aggregation:** Automatisiertes Scraping von Events aus verschiedenen Quellen wie Docks.de, Übel und Gefährlich und HH gegen Rechts.
+- **Datenbankintegration:** Speicherung der Events in einer PostgreSQL-Datenbank mit Supabase als Backend.
+- **Echtzeit-Daten:** Tägliche Updates der Event-Daten.
+- **Interaktive Oberfläche:** Übersichtliche Darstellung der Events mit Filtermöglichkeiten.
+- **Datenexport:** Möglichkeit, Events als JSON-Datei herunterzuladen.
 
 ## 🛠️ Tech Stack
 
 ### Frontend:
-- Next.js 14 (React)
-- TypeScript
-- Zustand für State Management
-- MapLibre GL JS für Kartendarstellung
-- Shadcn UI für UI-Komponenten
-- Framer Motion für Animationen
+- **HTML/CSS/JavaScript**: Klassisches Frontend für die Event-Darstellung.
+- **Framer Motion**: Animationen für interaktive Elemente.
 
 ### Backend:
-- Node.js mit Express
-- PostgreSQL + PostGIS für Geodaten
-- Redis für Caching
-- Strapi CMS für manuelle Event-Einträge
-- Elasticsearch für Suchfunktionalität
+- **Supabase**: PostgreSQL-Datenbank mit API-Unterstützung.
+- **Selenium & BeautifulSoup**: Web-Scraping für Event-Daten.
 
 ### DevOps:
-- Docker & Docker Compose
-- GitHub Actions für CI/CD
+- **Docker Compose**: Containerisierung von Services.
+- **GitHub Actions**: Automatisierte Tests und Deployment.
 
 ## 🚀 Getting Started
 
 1. **Repository klonen:**
+```bash
 git clone https://github.com/your-repo/hamburg-events-hub.git
 cd hamburg-events-hub
-
+```
 
 2. **Umgebungsvariablen einrichten:**
-cp .env.example .env
+```bash
+cp env.json.example env.json
+```
+Fülle die notwendigen Werte in der `env.json` Datei aus (z. B. Supabase API-Schlüssel).
 
-Fülle die notwendigen Werte in der `.env` Datei aus.
-
-3. **Docker-Container starten:**
-docker-compose up -d
-
-
-4. **Abhängigkeiten installieren und Entwicklungsserver starten:**
-
+3. **Abhängigkeiten installieren:**
+```bash
 npm install
-npm run dev
+pip install -r requirements.txt
+```
 
+4. **Datenbank einrichten:**
+```bash
+docker-compose up -d
+```
 
-5. **Datenpipeline starten:**
-cd packages/scraping
-scrapy crawl eventbrite -O events.json
+5. **Scraper starten:**
+```bash
+python Scraper/main.py
+```
+
+6. **Frontend starten (optional):**
+Öffne die Datei `UI/index.html` im Browser.
 
 ## 📂 Projektstruktur
-hamburg-events/
-├── apps/
-│ ├── frontend/ # Next.js App
-│ │ ├── src/
-│ │ │ ├── features/
-│ │ │ ├── lib/
-│ │ │ └── styles/
-│ └── backend/ # Express API
-├── packages/
-│ ├── database/ # Prisma Schema
-│ ├── scraping/ # Scrapy Spiders
-│ └── cms/ # Strapi Customizations
-├── infrastructure/
-│ ├── docker/
-│ └── terraform/
-└── README.md
 
-
+```
+HamburgEvents/
+├── Scraper/                 # Python-basierte Scraper
+│   ├── base_scraper.py      # Basisklasse für alle Scraper
+│   ├── docks_scraper.py     # Scraper für Docks Freiheit36
+│   ├── hhgegenrechts_scraper.py  # Scraper für HH gegen Rechts
+│   ├── uebelundgefaehrlich_scraper.py  # Scraper für Übel & Gefährlich
+│   └── main.py              # Hauptskript zum Starten aller Scraper
+├── UI/                      # Frontend-Dateien
+│   ├── assets/              # Bilder und Videos
+│   │   ├── image/           # Bilderordner
+│   │   └── video/           # Videosordner
+│   ├── index.html           # Hauptseite des Frontends
+│   ├── script.js            # JavaScript-Funktionen fürs Frontend
+│   └── style.css            # CSS-Styling fürs Frontend
+├── all_events.json          # Gespeicherte Event-Daten (JSON)
+├── env.json                 # Umgebungsvariablen (z. B. Supabase API-Schlüssel)
+└── README.md                # Dokumentation des Projekts
+```
 
 ## 🔍 Datenquellen
 
 | Quelle               | Methode        | Update-Intervall |
 |----------------------|----------------|-------------------|
-| Eventbrite           | Scrapy + API   | Stündlich         |
-| Tunnel.de            | Puppeteer      | Täglich           |
-| Übel und Gefährlich  | API            | Täglich           |
-| Stadt Hamburg Open Data | API         | Wöchentlich       |
+| Docks.de             | Selenium       | Täglich           |
+| Übel und Gefährlich  | Selenium       | Täglich           |
+| HH gegen Rechts      | Selenium       | Täglich           |
 
 ## 📅 Scrum Prozess
 
-- **Product Owner:** Lykka
-- **Scrum Master:** Tim
-- **Entwicklungsteam:** Zoe, Luc
+**Teamrollen:**
+- Product Owner: Tim
+- Scrum Master: Lykka, Zoe, Luc (Im Wechsel)
+- Entwicklungsteam: Tim, Lykka, Zoe, Luc
 
 **Sprint-Zyklus:**
-- Sprint Planning: Montag 10:00 Uhr
-- Daily Standup: Täglich 15:00 Uhr
-- Sprint Review: Freitag 12:00 Uhr
-- Sprint-Länge: 2 Wochen
+- Sprint Planning: 10:00 Uhr
+- Daily Standup: Täglich 10:00 Uhr (Discord)
+- Sprint Review & Retro: Zum Wechsel
 
 **Tools:**
-- Jira für Backlog Management
-- FigJam für Retrospektiven
-- GitHub Projects für Task Tracking
+- GitHub Projects für Task Management.
+- Google Docs für Dokumentation.
 
 ## 📈 Nächste Schritte
 
-- [ ] CI/CD Pipeline einrichten
-- [ ] Sentry für Error Tracking implementieren
-- [ ] i18n für internationale Nutzer einführen
-- [ ] Performance-Optimierung für mobile Endgeräte
-- [ ] Benutzer-Authentifizierung und Profilerstellung
+1. Optimierung der Scraping-Skripte:
+    - Fehlerbehandlung verbessern.
+    - Performance optimieren.
+2. Integration von Supabase:
+    - Automatische Speicherung der Daten in PostgreSQL.
+3. Erweiterung des Frontends:
+    - Filteroptionen hinzufügen (z. B. nach Datum oder Kategorie).
+4. CI/CD einrichten:
+    - Automatisierte Tests und Deployments mit GitHub Actions.
 
 ## 💡 Erweiterungsideen
 
-- KI-basierte Personalisierung mit Apache PredictionIO
-- Ticket-Preisvergleich mit Web Scraping
-- Realtime Demo-Tracking über Twitter API
-- Barrierefreiheits-Check für Locations
-- Event-Empfehlungssystem basierend auf kollaborativem Filtern
+1. Hinzufügen weiterer Datenquellen:
+    - Eventbrite API oder Stadt Hamburg Open Data.
+2. Benutzerprofile:
+    - Personalisierte Event-Empfehlungen basierend auf Interessen.
+3. Mobile App:
+    - React Native oder Flutter App zur mobilen Nutzung.
 
 ## 👥 Mitwirkende
 
-- Tim - Scrum Master & Backend-Entwicklung
-- Lykka - Product Owner & UX Design
-- Zoe - Frontend-Entwicklung
-- Luc - Datenintegration & DevOps
+| Name  | Rolle                    |
+|-------|--------------------------|
+| Tim   | Backend                  |
+| Lykka | UX/UI Design             |
+| Zoe   | Frontend Entwicklung     |
+| Luc   | Datenintegration & DevOps|
 
-Wir freuen uns über Beiträge! Bitte lesen Sie [CONTRIBUTING.md](CONTRIBUTING.md) für Details zu unserem Code of Conduct und dem Prozess für das Einreichen von Pull Requests.
+Wir freuen uns über Beiträge! Bitte lesen Sie die [CONTRIBUTING.md](CONTRIBUTING.md) Datei, um mehr über den Beitragprozess zu erfahren.
 
 ## 📄 Lizenz
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert. Weitere Details finden Sie in der [LICENSE](LICENSE) Datei.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert – siehe die [LICENSE](LICENSE) Datei für Details.
 
 ---
 
-Erstellt mit ❤️ in Hamburg
-
-
-
+Erstellt mit ❤️ in Hamburg.
 

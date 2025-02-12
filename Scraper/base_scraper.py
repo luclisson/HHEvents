@@ -1,9 +1,11 @@
-import time
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from event import Event
+import logging
+import time
+
 
 class BaseScraper:
     def __init__(self, driver: WebDriver, source_name: str, container_selector = (By.CSS_SELECTOR, "div.col-xxl-4.col-xl-4.col-lg-4.col-md-6.col-12.mb-4")):
