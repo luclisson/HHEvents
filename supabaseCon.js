@@ -9,14 +9,37 @@ const supabase = createClient(`${env.db_url}`, `${env.api_key}`)
 
 async function insertDataToWebsitesTable(title, link, description, category)
 {
-    const { error } = await supabase.from('websites').insert(
+    //add some kind of validation to make sure website doesnt exist
+    //fetch all entities of websites; loop through them, if not exist insert
+    let eventExist = false;
+    const {data, error} = await supabase.from('websites')
+                                        .select('*')
+    for(let i = 0; i<data.length; i++)
+    {
+        if(data[i].title === title 
+            && data[i].link === link 
+            && data[i].category === category)
         {
-            title: `${title}`,
-            link: `${link}`,
-            description: `${description}`,
-            category: `${category}`,
+            eventExist = true;
+            break;
         }
-    )
+    }
+    console.log(`the event ${title} exist: ${eventExist}`)
+    if(!eventExist)
+    {
+        const {error: insertError } = await supabase.from('websites').insert(
+            {
+                title: `${title}`,
+                link: `${link}`,
+                description: `${description}`,
+                category: `${category}`,
+            }
+        )
+        if(insertError)
+        {
+            console.error("there was an error while inserting the data: ", insertError)
+        }
+    }
 }
 
 async function insertDataToFetchDataTable(price, date, duration, websiteID)
@@ -30,25 +53,27 @@ async function insertDataToFetchDataTable(price, date, duration, websiteID)
         }
     )
 }
-//insertDataToWebsitesTable("testFromJS", "https:google.com", "just a test from the ide", "test")
-//insertDataToFetchDataTable("5",'22.02.2222',1, 3)
-
-//fetching data
-const { data, error } = await supabase
-  .from('fetchdata')
-  .select('*');
-  //need a join which fetches the website and the newest fetchData where websiteID=id
-
- 
-//printing data and some column from fetch data table
-/*
-console.log(data);
-let amountWebsites = data.length;
-for(let i = 0; i<amountWebsites;i++)
-{
-    console.log(data[i])
+async function insertDataFromScraperToDB(title, link, description, category,
+                                         price, date, duration)
+{   
+    insertDataToWebsitesTable(title,link,description,category)
+    //ich brauche hier irgendwie die websiteID: idee-fetchall check if entity is object getID
+    let eventID = 0;
+    const {data, error} = await supabase.from('websites').select('*');
+    if(!error)
+    {
+        for(let i = 0; i<data.length;i++)
+        {
+            if(data[i].title=== title)//hier nur noch title abgleichen, da alle titles unique sein sollten durch vorherige function
+            {
+                eventID = data[i].id
+                break
+            }
+        }
+    }
+    console.log(`website id of ${title} is ${eventID}`)
+    insertDataToFetchDataTable(price, date, duration, eventID)
 }
-*/
 async function fetchLatestDataWebsite(websiteID)
 {
     const {data , error1st} = await supabase
@@ -77,13 +102,21 @@ async function fetchLatestDataWebsite(websiteID)
     {
         console.log("fetched the result successfully")
     }
-    console.log(result)
+    let output = result[0] //defining output to the first element since the array will always contain only one element
+    console.log(output)
+    console.log(output.fetchdata[0].date)//example how to access the fetchdata object
+                                        //want to get rid of accessing the first index of fetchdata but idk how
 }
-fetchLatestDataWebsite(3)
+
+
+//testing functions
+//insertDataFromScraperToDB("testFromJS","https:google.com","just a test from the ide","test","6","23.05.2005",5)
+//fetchLatestDataWebsite(3)
+
+
+
 //todos: 
 /*
-check if event title already exists if not --> insert
-fetches in db
 if anount fetches per website is 60 delete all except one
 define test data until scraper py file is ready
 */
