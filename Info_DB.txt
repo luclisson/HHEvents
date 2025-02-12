@@ -6,7 +6,6 @@ We are using **Supabase** as our database technology. Supabase is an open-source
 ## Parameters
 The database is structured to store event information with the following parameters:
 
-- **source**: The source of the event (e.g., Eventbrite, Tunnel.de).
 - **source_url**: The URL of the source where the event was found.
 - **title**: The title of the event.
 - **link**: A direct link to the event page.
@@ -17,3 +16,16 @@ The database is structured to store event information with the following paramet
 
 ## Example Entry
 Here is an example of how an event entry might look in the database:
+
+
+Most recent events 
+Coming up 
+Filter erst bunt (nach date)
+Events in Kacheln haben. 
+- title
+- category
+- date
+- in deatail but like hidden for first
+- try dynamisch
+
+5355 8506 4700 4017
