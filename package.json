@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "@supabase/supabase-js": "^2.48.1",
+    "express": "^4.21.2",
     "html-dom-parser": "^5.0.13",
     "jsdom": "^26.0.0",
+    "node-cron": "^3.0.3",
     "node-fetch": "^2.7.0",
     "xmldom": "^0.6.0"
   }
