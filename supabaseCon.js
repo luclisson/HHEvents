@@ -6,6 +6,30 @@ const env = JSON.parse(envJson);
 // Create a single supabase client for interacting with your database
 const supabase = createClient(`${env.db_url}`, `${env.api_key}`) 
 
+async function deleteOldData(eventID)
+{
+    const {data, error} = await supabase.from('fetchdata')
+                                        .select('*')
+                                        .eq('websiteid', eventID)
+    if(!error)
+    {
+        const maxFeches = 30;
+        const amountDelete = 3; //for testing
+        const amountFetches = data.length;
+        
+        if(amountFetches>=maxFeches)
+        {
+            console.log('to many fetches were registered. old data will be deleted')
+            console.log(`${amountDelete} rows where deleted all with ids less than ${data[amountDelete-1].id}`)
+            await supabase.from('fetchdata')
+                            .delete()
+                            .lte('id', data[amountDelete-1].id)
+        }
+    }else
+    {
+        console.error("there was in error while fetching the data to delete the old data",error)
+    }
+}
 
 async function insertDataToWebsitesTable(title, link, description, category)
 {
@@ -112,11 +136,12 @@ async function fetchLatestDataWebsite(websiteID)
 //testing functions
 //insertDataFromScraperToDB("testFromJS","https:google.com","just a test from the ide","test","6","23.05.2005",5)
 //fetchLatestDataWebsite(3)
+//deleteOldData(3)
 
 
 
 //todos: 
 /*
-if anount fetches per website is 60 delete all except one
+fetch data daily
 define test data until scraper py file is ready
 */
