@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburg Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <video id="intro-video" autoplay muted>
+            <source src="assets/video/Black and Cyan Blue Simple Game Animated Logo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content hidden">
+        <header class="header">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <img src="assets/image/ogGPT_Picture-1739354679370.png" alt="Logo">
+                </a>
+                <nav class="nav">
+                    <a href="#recent" class="nav-link">Aktuelle Events</a>
+                    <a href="#coming" class="nav-link">Bevorstehend</a>
+                    <button class="cta-button">Event einreichen</button>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Entdecke Hamburgs Eventvielfalt</h1>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-category="alle">Alle Kategorien</button>
+                    <button class="filter-btn" data-category="musik">Musik</button>
+                    <button class="filter-btn" data-category="kunst">Kunst</button>
+                    <button class="filter-btn" data-category="sport">Sport</button>
+                    <button class="filter-btn" data-category="essen">Essen</button>
+                </div>
+            </div>
+        </section>
+
+        <main class="event-grid" id="event-container"></main>
+
+        <footer class="footer">
+            <div class="social-links">
+                <a href="https://www.instagram.com/tim131103/" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/luclisson/HHEvents" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2024 Hamburg Events</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -8,6 +8,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from bs4 import BeautifulSoup
 import re
 import time
+import logging
 
 def scrape_tunnel_events(url):
     # Konfiguration des Edge-Browsers
@@ -15,7 +16,7 @@ def scrape_tunnel_events(url):
     # edge_options.add_argument("--headless")  # Optional: Headless-Modus aktivieren
 
     # Einrichten des Edge-Treibers mit automatischer Verwaltung
-    service = Service(EdgeChromiumDriverManager().install())
+    service = Service(EdgeChromiumDriverManager(log_level=logging.INFO).install())
     driver = webdriver.Edge(service=service, options=edge_options)
 
     print(f"Starte Web-Scraping von: {url}")
