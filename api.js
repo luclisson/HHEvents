@@ -1,7 +1,10 @@
 const dbCon = require('./supabaseCon.js');
+const cron = require('node-cron')
 const express = require('express')
 const app = express()
 const port = 3000
+
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('application is running')//every route has a request and a response var 
@@ -18,7 +21,7 @@ app.get('/fetch/:id', async (req, res) => {
     }
     try
     {
-        const data = await dbCon.fetchLatestDataWebsite(id)
+        const data = await dbCon.fetchLatestDataWebsite(id)//test data
         console.log(data);
         res.send(data)
     }catch(error)
@@ -27,6 +30,24 @@ app.get('/fetch/:id', async (req, res) => {
         console.error(error)
     }
 })
-app.post('pushData', (req, res)=>{
+app.get('/fetchData', async (req, res)=>{
+    console.log("fetchData route was called")
+    try
+    {
+        //implement fetching db body
+        const data = await dbCon.fetchLatestDataWebsite(3);
+        res.send(data);
+    }catch(error)
+    {
+        res.status(500).statusMessage('something went wrong')
+    }
+})
 
+cron.schedule('40 17 * * *', async ()=>{
+    const response = await fetch('http://localhost:3000/fetchData',{
+        method: 'GET'
+    });
+    const data = await response.json();
+    console.log(data)
+    
 })
