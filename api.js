@@ -35,7 +35,7 @@ app.get('/fetchData', async (req, res)=>{
     try
     {
         //implement fetching db body
-        const data = await dbCon.fetchLatestDataWebsite(3);
+        const data = await dbCon.fetchAllDataDb();
         res.send(data);
     }catch(error)
     {
@@ -43,11 +43,12 @@ app.get('/fetchData', async (req, res)=>{
     }
 })
 
-cron.schedule('40 17 * * *', async ()=>{
+cron.schedule('30 01 * * *', async ()=>{
+    //fetches db everyday at 1.30am
     const response = await fetch('http://localhost:3000/fetchData',{
         method: 'GET'
     });
-    const data = await response.json();
+    const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
     console.log(data)
     
 })
