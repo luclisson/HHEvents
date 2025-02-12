@@ -5,3 +5,7 @@ env.json
 webScrampe.py
 *.pyc
 docks_events.json
+Test/Müll
+geckodriver.log
+event_log.txt
+Info_DB.txt

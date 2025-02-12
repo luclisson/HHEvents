@@ -4,14 +4,15 @@ from event import Event
 import time
 import logging
 
-
 class DocksScraper(BaseScraper):
     def __init__(self, driver, page_type="docks"):
         self.page_type = page_type
+        location = "Docks Freiheit36" if page_type == "docks" else "Prinzenbar"
         super().__init__(
             driver=driver,
-            source_name="Docks Freiheit36" if page_type == "docks" else "Prinzenbar"
+            source_name=location
         )
+        self.location = location  # Neue Location-Variable
 
     def click_next_page(self, current_page: int) -> bool:
         try:
@@ -22,7 +23,7 @@ class DocksScraper(BaseScraper):
                 next_page_li = page_links[next_page - 1]
                 next_page_link = next_page_li.find_element(By.CSS_SELECTOR, "a.page-link")
                 self.driver.execute_script("arguments[0].click();", next_page_link)
-                time.sleep(2)  # Warte auf Laden der nächsten Seite
+                time.sleep(2)
                 return True
             
             return False
@@ -41,9 +42,8 @@ class DocksScraper(BaseScraper):
             date_parts = date_text.split('|')
 
             try:
-                img_element = container.find_element(By.CSS_SELECTOR, 'img')
-                img_url = img_element.get_attribute('src')
-            except Exception as e:
+                img_url = container.find_element(By.CSS_SELECTOR, 'img').get_attribute('src')
+            except Exception:
                 img_url = None
 
             return Event(
@@ -53,10 +53,10 @@ class DocksScraper(BaseScraper):
                 link=link,
                 event_date=date_parts[1].strip() if len(date_parts) > 1 else date_text,
                 event_type=date_parts[0].strip() if len(date_parts) > 1 else "Unbekannt",
+                location=self.location,  # Hier wurde Location hinzugefügt
                 price=price,
                 img_url=img_url
             )
         except Exception as e:
             logging.error(f"Fehler beim Parsen eines Events: {str(e)}")
             return None
-

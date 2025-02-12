@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.edge.service import Service
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from docks_scraper import DocksScraper
+from uebelundgefaehrlich_scraper import UebelUndGefaehrlichScraper
+from hhgegenrechts_scraper import HHgegenrechtsScraper as hhgege
 import logging
 import json
 from event import Event
@@ -45,7 +47,7 @@ def save_new_events(filename: str, new_events: list[Event], existing_events: set
 
 def main():
     logging.basicConfig(level=logging.INFO)
-    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager(log_level=logging.INFO).install()))
+    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
 
     try:
         json_filename = "all_events.json"
@@ -61,8 +63,18 @@ def main():
         prinzenbar_scraper = DocksScraper(driver, page_type="prinzenbar")
         prinzenbar_events = prinzenbar_scraper.scrape(prinzenbar_url)
 
+        # UebelUndGefaehrlich-Scraper
+        uebelundgefaehrlich_url = "https://www.uebelundgefaehrlich.com/veranstaltungen/"
+        uebelundgefaehrlich_scraper = UebelUndGefaehrlichScraper(driver)
+        uebelundgefaehrlich_events = uebelundgefaehrlich_scraper.scrape(uebelundgefaehrlich_url)
+
+        #Hamburg gegen Rechts Scraper
+        hhgr_url = "https://vernetztgegenrechts.hamburg/veranstaltungen-2/"
+        hhgr_scraper = hhgege(driver)
+        hhgr_events = hhgr_scraper.scrape(hhgr_url)
+
         # Zusammenführen der Events und Duplikate entfernen
-        all_events = docks_events + prinzenbar_events
+        all_events = docks_events + prinzenbar_events + uebelundgefaehrlich_events + hhgr_events
         unique_events = []
         seen_events = set()
         duplicate_count = 0
@@ -87,6 +99,7 @@ def main():
         # Ausgabe
         print(f"Gesamtanzahl gefundener Events (Docks): {len(docks_events)}")
         print(f"Gesamtanzahl gefundener Events (Prinzenbar): {len(prinzenbar_events)}")
+        print(f"Gesamtanzahl gefundener Events (Uebel & Gefaehrlich): {len(uebelundgefaehrlich_events)}")
         print(f"Gesamtanzahl aller Events: {len(valid_all_events)}")
 
     finally:
