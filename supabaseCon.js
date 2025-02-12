@@ -127,12 +127,12 @@ async function fetchLatestDataWebsite(websiteID)
         console.log("fetched the result successfully")
     }
     let output = result[0] //defining output to the first element since the array will always contain only one element
-    console.log(output)
-    console.log(output.fetchdata[0].date)//example how to access the fetchdata object
+    //console.log(output.fetchdata[0].date)//example how to access the fetchdata object
                                         //want to get rid of accessing the first index of fetchdata but idk how
+    return output;
 }
 
-
+export {fetchLatestDataWebsite, insertDataFromScraperToDB}
 //testing functions
 //insertDataFromScraperToDB("testFromJS","https:google.com","just a test from the ide","test","6","23.05.2005",5)
 //fetchLatestDataWebsite(3)
