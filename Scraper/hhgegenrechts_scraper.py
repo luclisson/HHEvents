@@ -8,6 +8,9 @@ import re
 import time
 
 class HHgegenrechtsScraper(BaseScraper):
+    DATE_REGEX = re.compile(r"(\d{2}\.\d{2}\.\d{4})")
+    TIME_REGEX = re.compile(r"(\d{2}:\d{2})")
+
     def __init__(self, driver):
         super().__init__(
             driver=driver,
@@ -40,21 +43,16 @@ class HHgegenrechtsScraper(BaseScraper):
                 current_count = len(self.driver.find_elements(*self.container_selector))
                 if current_count == last_count:
                     break
-                
                 last_count = current_count
-                
                 load_button = self.wait.until(
                     EC.element_to_be_clickable((By.CSS_SELECTOR, "a.ecs-ajax_load_more:not(.disabled)"))
                 )
-                
                 self.driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", load_button)
                 self.driver.execute_script("arguments[0].click();", load_button)
-                
                 self.wait.until(
                     lambda d: len(d.find_elements(*self.container_selector)) > current_count
                 )
                 time.sleep(1)
-                
             except TimeoutException:
                 logging.info("Keine weiteren Events verfügbar")
                 break
@@ -64,22 +62,20 @@ class HHgegenrechtsScraper(BaseScraper):
 
     def parse_event(self, container) -> Event:
         try:
-            # Datum
+            # Datumsextraktion
             date_element = container.find_element(By.CSS_SELECTOR, "div.callout_date")
-            date_str = self._clean_date(date_element.get_attribute("textContent"))
+            raw_date = self._clean_date(date_element.get_attribute("textContent"))
             
+            date_match = self.DATE_REGEX.search(raw_date)
+            time_match = self.TIME_REGEX.search(raw_date)
+            
+            event_date = date_match.group(1) if date_match else "01.01.1970"
+            time = time_match.group(1) if time_match else "00:00"
+
             # Titel und Link
             title_element = container.find_element(By.CSS_SELECTOR, "h2.entry-title a")
             title = title_element.get_attribute("textContent")
             link = title_element.get_attribute("href")
-
-            # Zeit
-            time_str = date_str
-            try:
-                time_element = container.find_element(By.CSS_SELECTOR, "span.decm_date")
-                time_str = f"{date_str} {time_element.get_attribute("textContent")}"
-            except Exception:
-                pass
 
             # Kategorien
             categories = []
@@ -90,14 +86,6 @@ class HHgegenrechtsScraper(BaseScraper):
                     categories.append(cat_text)
                     seen_cats.add(cat_text)
 
-            # Beschreibung
-            description = ""
-            try:
-                desc_element = container.find_element(By.CSS_SELECTOR, "div.decm-show-data-display-block")
-                description = desc_element.text.strip()[:500]
-            except Exception:
-                pass
-
             # Bild
             img_url = None
             try:
@@ -107,18 +95,15 @@ class HHgegenrechtsScraper(BaseScraper):
                 pass
 
             return Event(
-                source=self.source_name,
                 source_url=self.driver.current_url,
-                title=title,
+                title=title.strip(),
                 link=link,
-                event_date=self._clean_date(time_str),
-                event_type=", ".join(categories) if categories else "Vortrag",
+                event_date=event_date,
+                time=time,
+                category=", ".join(categories) if categories else "Vortrag",
                 location=self._parse_location(title),
-                description=description,
-                price=None,
                 img_url=img_url
             )
-
         except Exception as e:
             logging.error(f"Parsefehler: {str(e)}")
             return None
