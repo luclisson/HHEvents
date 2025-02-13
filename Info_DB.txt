@@ -7,12 +7,15 @@ We are using **Supabase** as our database technology. Supabase is an open-source
 The database is structured to store event information with the following parameters:
 
 - **source_url**: The URL of the source where the event was found.
-- **title**: The title of the event.
-- **link**: A direct link to the event page.
-- **event_date**: The date of the event in the format `DD.MM.YYYY`.
-- **event_type**: The type or category of the event.
+- **title**: The title of the event. check
+- **link**: A direct link to the event page. link zum event nicht ticket
+- **event_date**: The date of the event in the format `DD.MM.YYYY` and time.
+- **time** : The time of the event in the format.
+- **category**: The type or category of the event.
 - **price**: The price of the event (optional).
 - **img_url**: A URL to an image associated with the event (optional).
+- **location** : A location of the event ( in the future)
+- **scraped_at** : Date from the scraped_at
 
 ## Example Entry
 Here is an example of how an event entry might look in the database:
