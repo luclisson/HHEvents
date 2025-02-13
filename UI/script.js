@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainContent.classList.remove('hidden'); // Hauptinhalt anzeigen
         }, 500); // Zeit für den Übergang (CSS-Transition)
     };
-
+    
     // Öffnet oder schließt Details in Event-Kacheln bei Klick
     eventContainer.addEventListener('click', function(e) {
         const tile = e.target.closest('.event-tile'); // Findet die angeklickte Kachel

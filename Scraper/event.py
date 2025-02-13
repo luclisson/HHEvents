@@ -12,34 +12,30 @@ class Event:
 
     def __init__(
         self,
-        source: str,
         source_url: str,
         title: str,
         link: str,
-        event_date: str,
-        event_type: str,
-        location: str,  # Jetzt erforderlicher Parameter
+        event_date: str,  # Format: DD.MM.YYYY
+        time: str,        # Format: HH:MM
+        category: str,
+        location: Optional [str] = None,    
         price: Optional[str] = None,
-        img_url: Optional[str] = None,
-        description: Optional[str] = None,
-        external_links: Optional[List[str]] = None
+        img_url: Optional[str] = None
     ):
         """
         Initialisiert ein Event-Objekt mit Location-Unterstützung
         
         :param location: Veranstaltungsort (z.B. "Ballsaal, Hamburg")
         """
-        self.source = source
         self.source_url = source_url
         self.title = title.strip()
         self.link = link
         self.event_date = self._parse_date(event_date)
-        self.event_type = event_type
+        self.time = time
+        self.category = category
         self.location = location.strip()  # Pflichtfeld
         self.price = self._parse_price(price)
         self.img_url = img_url
-        self.description = description.strip() if description else None
-        self.external_links = external_links or []
         self.scraped_at = datetime.now().isoformat()
 
     def _parse_date(self, date_str: str) -> str:
@@ -71,21 +67,17 @@ class Event:
 
     def to_dict(self):
      return {
-        'source': self.source,
         'source_url': self.source_url,
         'title': self.title,
         'link': self.link,
         'event_date': self.event_date,
-        'event_type': self.event_type,
+        'time': self.time,
+        'category': self.category,
         'location': self.location,
         'price': self.price,
         'img_url': self.img_url,
-        'description': self.description,
-        # Konvertiere Listen zu Tuples für Hashbarkeit
-        'external_links': tuple(self.external_links) if self.external_links else None,
         'scraped_at': self.scraped_at
     }
-
 
     def save_to_json(self, filename: str):
         """Speichert das Event in einer JSON-Datei"""
@@ -93,23 +85,24 @@ class Event:
             json.dump(self.to_dict(), f, ensure_ascii=False)
             f.write('\n')
 
-    async def save_to_db(self, supabase_client):
-        """Speichert in Supabase-Datenbank"""
-        try:
-            response = await supabase_client.from_('events').insert(self.to_dict()).execute()
-            if not response.error:
-                print(f"Event '{self.title}' gespeichert")
-            else:
-                print(f"Datenbankfehler: {response.error.message}")
-        except Exception as e:
-            print(f"Kritischer Fehler: {str(e)}")
+    # async def save_to_db(self, supabase_client):
+    #     """Speichert in Supabase-Datenbank"""
+    #     try:
+    #         response = await supabase_client.from_('events').insert(self.to_dict()).execute()
+    #         if not response.error:
+    #             print(f"Event '{self.title}' gespeichert")
+    #         else:
+    #             print(f"Datenbankfehler: {response.error.message}")
+    #     except Exception as e:
+    #         print(f"Kritischer Fehler: {str(e)}")
 
     def __repr__(self):
         return (
             f"<Event("
             f"title={self.title!r}, "
             f"date={self.event_date}, "
-            f"type={self.event_type}, "
+            f"time={self.time}, "
+            f"category={self.category!r}, "
             f"location={self.location!r}, "
             f"price={self.price})>"
         )
@@ -117,4 +110,4 @@ class Event:
     def __eq__(self, other):
         if not isinstance(other, Event):
             return False
-        return self.link == other.link and self.event_date == other.event_date
+        return self.link == other.link and self.event_date == other.event_date and self.time == other.time
