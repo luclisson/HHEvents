@@ -6,6 +6,9 @@ const env = JSON.parse(envJson);
 // Create a single supabase client for interacting with your database
 const supabase = createClient(`${env.db_url}`, `${env.api_key}`) 
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function deleteOldData(eventID)
 {
     const {data, error} = await supabase.from('fetchdata')
@@ -103,7 +106,9 @@ async function insertDataFromScraperToDB(title, link, category, source, location
             }
         }
     }
+    await sleep(2000)
     console.log(`event id of ${title} is ${eventId}`)
+    console.log(price, date, scrapedAt, eventId, time)
     insertDataToFetchDataTable(price, date,scrapedAt,eventId,time)
 }
 async function fetchLatestDataWebsite(eventID)
@@ -172,10 +177,3 @@ export {fetchLatestDataWebsite, insertDataFromScraperToDB, fetchAllDataDb}
 //fetchLatestDataWebsite(3)
 //deleteOldData(3)
 //fetchAllDataDb();
-
-
-//todos: 
-/*
-fetch data daily
-define test data until scraper py file is ready
-*/
