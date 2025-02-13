@@ -34,7 +34,6 @@ app.get('/fetchData', async (req, res)=>{
     console.log("fetchData route was called")
     try
     {
-        //implement fetching db body
         const data = await dbCon.fetchAllDataDb();
         res.send(data);
     }catch(error)
@@ -43,7 +42,7 @@ app.get('/fetchData', async (req, res)=>{
     }
 })
 
-cron.schedule('30 01 * * *', async ()=>{
+cron.schedule('45 10 * * *', async ()=>{
     //fetches db everyday at 1.30am
     const response = await fetch('http://localhost:3000/fetchData',{
         method: 'GET'
@@ -51,3 +50,14 @@ cron.schedule('30 01 * * *', async ()=>{
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
     console.log(data) 
 })
+
+cron.schedule('00 11 * * *', async ()=>{
+    //code to insert test data, later scraper data
+})
+
+
+/*
+todos:
+- send data from scraper to db
+- use data from db and update frontend
+*/

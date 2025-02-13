@@ -10,7 +10,7 @@ async function deleteOldData(eventID)
 {
     const {data, error} = await supabase.from('fetchdata')
                                         .select('*')
-                                        .eq('websiteid', eventID)
+                                        .eq('event_id', eventID)
     if(!error)
     {
         const maxFeches = 30;
@@ -34,16 +34,18 @@ async function deleteOldData(eventID)
     }
 }
 
-async function insertDataToWebsitesTable(title, link, description, category)
+async function insertDataToWebsitesTable(title, link,category, imgUrl, source, location)
 {
     //add some kind of validation to make sure website doesnt exist
     //fetch all entities of websites; loop through them, if not exist insert
     let eventExist = false;
-    const {data, error} = await supabase.from('websites')
+    const {data, error} = await supabase.from('events')
                                         .select('*')
     for(let i = 0; i<data.length; i++)
     {
         if(data[i].title === title 
+            &&data[i].source == source
+            &&data[i].location == location
             && data[i].link === link 
             && data[i].category === category)
         {
@@ -54,12 +56,15 @@ async function insertDataToWebsitesTable(title, link, description, category)
     console.log(`the event ${title} exist: ${eventExist}`)
     if(!eventExist)
     {
-        const {error: insertError } = await supabase.from('websites').insert(
+        const {error: insertError } = await supabase.from('events').insert(
             {
                 title: `${title}`,
                 link: `${link}`,
-                description: `${description}`,
                 category: `${category}`,
+                img_url: `${imgUrl}`,
+                source: `${source}`,
+                location: `${location}`
+
             }
         )
         if(insertError)
@@ -68,44 +73,45 @@ async function insertDataToWebsitesTable(title, link, description, category)
         }
     }
 }
-async function insertDataToFetchDataTable(price, date, duration, websiteID)
+async function insertDataToFetchDataTable(price, date, scrapedAt, eventId, time)
 {
     const {error} = await supabase.from("fetchdata").insert(
         {
             price: `${price}`,
             date: `${date}`,
-            duration: `${duration}`,
-            websiteid: `${websiteID}`
+            scraped_at: `${scrapedAt}`,
+            event_id: `${eventId}`,
+            time: `${time}`
         }
     )
 }
-async function insertDataFromScraperToDB(title, link, description, category,
-                                         price, date, duration)
+async function insertDataFromScraperToDB(title, link, category, source, location, imgUrl,
+                                         price, date, scrapedAt, time)
 {   
-    insertDataToWebsitesTable(title,link,description,category)
+    insertDataToWebsitesTable(title, link, category,imgUrl,source,location)
     //ich brauche hier irgendwie die websiteID: idee-fetchall check if entity is object getID
-    let eventID = 0;
-    const {data, error} = await supabase.from('websites').select('*');
+    let eventId = 0;
+    const {data, error} = await supabase.from('events').select('*');
     if(!error)
     {
         for(let i = 0; i<data.length;i++)
         {
             if(data[i].title=== title)//hier nur noch title abgleichen, da alle titles unique sein sollten durch vorherige function
             {
-                eventID = data[i].id
+                eventId = data[i].id
                 break
             }
         }
     }
-    console.log(`website id of ${title} is ${eventID}`)
-    insertDataToFetchDataTable(price, date, duration, eventID)
+    console.log(`event id of ${title} is ${eventID}`)
+    insertDataToFetchDataTable(price, date,scrapedAt,eventId,time)
 }
-async function fetchLatestDataWebsite(websiteID)
+async function fetchLatestDataWebsite(eventID)
 {
     const {data , error1st} = await supabase
                             .from('fetchdata')
                             .select('id')
-                            .eq('websiteid', websiteID)//like WHERE websiteID= variable websiteID (only works on direct columns of that table)
+                            .eq('event_id', eventID)//like WHERE websiteID= variable websiteID (only works on direct columns of that table)
     
     if (error1st)
     {
@@ -118,9 +124,9 @@ async function fetchLatestDataWebsite(websiteID)
 
         //second fetch to get the final result with the latest website fetch informatin
         const {data: result , error: error2nd} = await supabase
-                                .from('websites')
+                                .from('events')
                                 .select('*, fetchdata(*)')
-                                .eq('id', websiteID)
+                                .eq('id', eventID)
                                 .filter('fetchdata.id', 'eq', latestFetchID);//the result has to be data and error
         if (error2nd)
         {
@@ -141,7 +147,7 @@ async function fetchAllDataDb()
 {
 
     let arr = []
-    const {data, error} = await supabase.from('websites')
+    const {data, error} = await supabase.from('events')
                                         .select('*, fetchdata(*)')
                                         
     if(!error)

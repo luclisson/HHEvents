@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="event-header">
                     <span class="event-category">${category}</span>
                     ${i % 5 === 0 ? '<div class="featured-badge">Featured</div>' : ''} <!-- Markiert jedes 5. Event -->
-                    <h3 class="event-title">Event #${i + 1}</h3>
+                    <h3 class="event-title">Event #${i + 1}</h3> <!--  -->
                     <time class="event-date">${randomDate()}</time> <!-- Zufälliges Datum -->
                 </div>
                 <div class="event-details">
