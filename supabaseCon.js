@@ -103,7 +103,7 @@ async function insertDataFromScraperToDB(title, link, category, source, location
             }
         }
     }
-    console.log(`event id of ${title} is ${eventID}`)
+    console.log(`event id of ${title} is ${eventId}`)
     insertDataToFetchDataTable(price, date,scrapedAt,eventId,time)
 }
 async function fetchLatestDataWebsite(eventID)
@@ -168,7 +168,7 @@ async function fetchAllDataDb()
 }
 export {fetchLatestDataWebsite, insertDataFromScraperToDB, fetchAllDataDb}
 //testing functions
-//insertDataFromScraperToDB("testFromJS","https:google.com","just a test from the ide","test","6","23.05.2005",5)
+insertDataFromScraperToDB("newTest", "https:newnewnew.com", "test", "testing.com", "Hamburgo", "img.url", "0$", "13.02.2025", "12.02.1025-10.52", "11 00")
 //fetchLatestDataWebsite(3)
 //deleteOldData(3)
 //fetchAllDataDb();
