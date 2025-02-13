@@ -1,5 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 const envJson = fs.readFileSync('./env.json', 'utf8');
 const env = JSON.parse(envJson);
 
@@ -92,6 +94,8 @@ async function insertDataFromScraperToDB(title, link, category, source, location
                                          price, date, scrapedAt, time)
 {   
     insertDataToWebsitesTable(title, link, category,imgUrl,source,location)
+    await sleep(20000)
+    insertDataToWebsitesTable(title, link, category,imgUrl,source,location)
     //ich brauche hier irgendwie die websiteID: idee-fetchall check if entity is object getID
     let eventId = 0;
     const {data, error} = await supabase.from('events').select('*');
@@ -101,13 +105,16 @@ async function insertDataFromScraperToDB(title, link, category, source, location
         {
             if(data[i].title=== title)//hier nur noch title abgleichen, da alle titles unique sein sollten durch vorherige function
             {
-                eventId = data[i].id
+                while(eventId ===0)
+                {
+                    eventId = data[i].id
+                }
                 break
             }
         }
     }
     await sleep(2000)
-    console.log(`event id of ${title} is ${eventId}`)
+    console.log(`ids: ${eventId}`)
     console.log(price, date, scrapedAt, eventId, time)
     insertDataToFetchDataTable(price, date,scrapedAt,eventId,time)
 }
@@ -124,8 +131,12 @@ async function fetchLatestDataWebsite(eventID)
     }
     if(data.length>0)
     {
-        let latestFetchID =  data[data.length-1].id //potential bug issue but im assuming that the highest id
+        let latestFetchID = 0;
+        while(latestFetchID === 0)
+        {
+            latestFetchID =  data[data.length-1].id //potential bug issue but im assuming that the highest id
                                                     // is always at the end of the returned array
+        }
 
         //second fetch to get the final result with the latest website fetch informatin
         const {data: result , error: error2nd} = await supabase
