@@ -7,23 +7,22 @@ from hhgegenrechts_scraper import HHgegenrechtsScraper as hhgege
 import logging
 import json
 from event import Event
+from typing import List, Dict
 
-def load_existing_events(filename: str) -> set:
-    """Lade vorhandene Events aus einer JSON-Datei."""
+def load_existing_events(filename: str) -> List[Dict]:
+    """Lade vorhandene Events als JSON-Array"""
     try:
         with open(filename, 'r', encoding='utf-8') as f:
-            event_dicts = [json.loads(line) for line in f]
-            existing_events = {tuple(sorted(d.items())) for d in event_dicts}
+            return json.load(f)
     except FileNotFoundError:
-        existing_events = set()
-        print(f"Datei {filename} nicht gefunden. Starte mit leerer Menge.")
+        print(f"Datei {filename} nicht gefunden. Neuanlage erfolgt.")
+        return []
     except json.JSONDecodeError:
-        print("Die JSON-Datei ist leer oder ungültig. Starte mit einer leeren Menge.")
-        existing_events = set()
-    return existing_events
+        print("Ungültiges JSON-Format. Starte mit leerer Liste.")
+        return []
 
 def _is_valid_event(event: Event) -> bool:
-    """Prüft Pflichtfelder gemäß Event-Klasse"""
+    """Prüfe obligatorische Felder"""
     required_fields = [
         event.source_url,
         event.title,
@@ -32,27 +31,35 @@ def _is_valid_event(event: Event) -> bool:
         event.time,
         event.category
     ]
-    return all(required_fields) and len(event.title) > 3
+    return all(required_fields) and len(event.title.strip()) > 3
 
-def save_new_events(filename: str, new_events: list[Event], existing_events: set):
-    """Speichert nur neue Events in einer JSON-Datei."""
+def save_new_events(filename: str, new_events: List[Event], existing_events: List[Dict]) -> List[Dict]:
+    """Speichere Events als JSON-Array mit Duplikatsprüfung"""
+    existing_tuples = {tuple(sorted(e.items())) for e in existing_events}
+    updated_events = existing_events.copy()
     new_count = 0
+
+    for event in new_events:
+        if event and _is_valid_event(event):
+            event_dict = event.to_dict()
+            event_tuple = tuple(sorted(event_dict.items()))
+            
+            if event_tuple not in existing_tuples:
+                updated_events.append(event_dict)
+                existing_tuples.add(event_tuple)
+                new_count += 1
+                logging.info(f"Neues Event: {event.title}")
+            else:
+                logging.debug(f"Duplikat übersprungen: {event.title}")
+
     try:
-        with open(filename, 'a', encoding='utf-8') as f:
-            for event in new_events:
-                if event and _is_valid_event(event):
-                    event_dict = event.to_dict()
-                    event_tuple = tuple(sorted(event_dict.items()))
-                    if event_tuple not in existing_events:
-                        json.dump(event_dict, f, ensure_ascii=False)
-                        f.write('\n')
-                        existing_events.add(event_tuple)
-                        new_count += 1
-                        logging.info(f"Neues Event gespeichert: {event.title}")
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(updated_events, f, ensure_ascii=False, indent=2)
     except Exception as e:
-        logging.error(f"Fehler beim Speichern von Events: {str(e)}")
-    print(f"Gespeichert {new_count} neue Events in {filename}.")
-    return existing_events
+        logging.error(f"Speicherfehler: {str(e)}")
+    
+    print(f"{new_count} neue Events hinzugefügt. Gesamt: {len(updated_events)}")
+    return updated_events
 
 def main():
     logging.basicConfig(level=logging.INFO)
@@ -62,52 +69,48 @@ def main():
         json_filename = "all_events.json"
         existing_events = load_existing_events(json_filename)
 
-        # Docks-Scraper
-        docks_url = "https://docksfreiheit36.de/docks/"
+        # Scrape Docks
         docks_scraper = DocksScraper(driver)
-        docks_events = docks_scraper.scrape(docks_url)
+        docks_events = docks_scraper.scrape("https://docksfreiheit36.de/docks/")
 
-        # Prinzenbar-Scraper
-        prinzenbar_url = "https://docksfreiheit36.de/prinzenbar/"
+        # Scrape Prinzenbar
         prinzenbar_scraper = DocksScraper(driver, page_type="prinzenbar")
-        prinzenbar_events = prinzenbar_scraper.scrape(prinzenbar_url)
+        prinzenbar_events = prinzenbar_scraper.scrape("https://docksfreiheit36.de/prinzenbar/")
 
-        # UebelUndGefaehrlich-Scraper
-        uebelundgefaehrlich_url = "https://www.uebelundgefaehrlich.com/veranstaltungen/"
-        uebelundgefaehrlich_scraper = UebelUndGefaehrlichScraper(driver)
-        uebelundgefaehrlich_events = uebelundgefaehrlich_scraper.scrape(uebelundgefaehrlich_url)
+        # Scrape Uebel & Gefährlich
+        uebel_scraper = UebelUndGefaehrlichScraper(driver)
+        uebel_events = uebel_scraper.scrape("https://www.uebelundgefaehrlich.com/veranstaltungen/")
 
-        # Hamburg gegen Rechts Scraper
-        hhgr_url = "https://vernetztgegenrechts.hamburg/veranstaltungen-2/"
+        # Scrape Hamburg gegen Rechts
         hhgr_scraper = hhgege(driver)
-        hhgr_events = hhgr_scraper.scrape(hhgr_url)
+        hhgr_events = hhgr_scraper.scrape("https://vernetztgegenrechts.hamburg/veranstaltungen-2/")
 
-        # Zusammenführen und Duplikate entfernen
-        all_events = docks_events + prinzenbar_events + uebelundgefaehrlich_events + hhgr_events
+        # Kombiniere und filtere Events
+        all_events = docks_events + prinzenbar_events + uebel_events + hhgr_events
         unique_events = []
-        seen_events = set()
-        duplicate_count = 0
-
+        seen = set()
+        
         for event in all_events:
             if event:
-                event_tuple = tuple(sorted(event.to_dict().items()))
-                if event_tuple not in seen_events:
+                event_data = event.to_dict()
+                event_key = (event_data['link'], event_data['event_date'], event_data['time'])
+                if event_key not in seen:
                     unique_events.append(event)
-                    seen_events.add(event_tuple)
-                else:
-                    duplicate_count += 1
+                    seen.add(event_key)
 
-        print(f"Anzahl gefundener Duplikate: {duplicate_count}")
-        valid_all_events = [event for event in unique_events if event is not None]
-        updated_events = save_new_events(json_filename, valid_all_events, existing_events)
+        # Speichere Ergebnisse
+        updated = save_new_events(json_filename, unique_events, existing_events)
 
-        # Ausgabe
-        print(f"Gesamtanzahl gefundener Events (Docks): {len(docks_events)}")
-        print(f"Gesamtanzahl gefundener Events (Prinzenbar): {len(prinzenbar_events)}")
-        print(f"Gesamtanzahl gefundener Events (Uebel & Gefährlich): {len(uebelundgefaehrlich_events)}")
-        print(f"Gesamtanzahl gefundener Events (Hamburg gegen Rechts): {len(hhgr_events)}")
-        print(f"Gesamtanzahl aller Events: {len(valid_all_events)}")
+        # Statistik
+        print("\n=== Scraping-Statistik ===")
+        print(f"Docks Events: {len(docks_events)}")
+        print(f"Prinzenbar Events: {len(prinzenbar_events)}")
+        print(f"Uebel & Gefährlich Events: {len(uebel_events)}")
+        print(f"Hamburg gegen Rechts Events: {len(hhgr_events)}")
+        print(f"Eindeutige Events gesamt: {len(updated)}")
 
+    except Exception as e:
+        logging.error(f"Kritischer Fehler: {str(e)}")
     finally:
         driver.quit()
 
