@@ -2,11 +2,13 @@ import { fetchLatestDataWebsite, insertDataFromScraperToDB, fetchAllDataDb } fro
 import { loadJSON } from './scraperCon.js';
 import cron from 'node-cron';
 import express from 'express';
+import cors from 'cors';
 
 
 const app = express()
 const port = 3000
 
+app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -34,24 +36,13 @@ app.get('/fetch/:id', async (req, res) => {
     }
 })
 app.get('/insertData', async (req, res) =>{
-    const data = loadJSON('test.json');
-    console.log(data)
-    for(let i = 0; i< data.length; i++)
+    const data = loadJSON('all_events.json');
+    for(let i = 0; i< 15; i++) //5 to not fetch 2000 entities
     {
-        /*
-        wird noch gebraucht um die geupdate struktur zu testen
-        console.log(`title: ${data[i].title}`)
-        console.log(`link: ${data[i].link}`)
-        console.log(`category ${data[i].event_type}`)
-        console.log(`source ${data[i].source}`)
-        console.log(`img url: ${data[i].img_url}`)
-        console.log(`price: ${data[i].price}`)
-        console.log(`date: ${data[i].event_date}`)
-        console.log(`scraped at: ${data[i].scraped_at}`)
-        */
         insertDataFromScraperToDB(data[i].title, data[i].link,
-            data[i].event_type, data[i].source, 'hamburg', data[i].img_url, 
-            data[i].price, data[i].event_date, data[i].scraped_at, "13 00");
+            data[i].category, data[i].source_url, data[i].location, data[i].img_url, 
+            data[i].price, data[i].event_date, data[i].scraped_at, data[i].time);
+            
     }
     if(!data)
     {
@@ -73,7 +64,7 @@ app.get('/fetchData', async (req, res)=>{
     }
 })
 
-cron.schedule('45 10 * * *', async ()=>{
+cron.schedule('39 20 * * *', async ()=>{
     //fetches db everyday at 1.30am
     const response = await fetch('http://localhost:3000/fetchData',{
         method: 'GET'
@@ -81,7 +72,7 @@ cron.schedule('45 10 * * *', async ()=>{
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
 })
 
-cron.schedule('37 15 * * *', async ()=>{
+cron.schedule('38 20 * * *', async ()=>{
     //code to insert test data, later scraper data
     const response = await fetch('http://localhost:3000/insertData',{
         method: 'GET'
