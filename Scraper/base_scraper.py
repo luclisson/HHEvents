@@ -14,6 +14,11 @@ class BaseScraper:
         self.wait = WebDriverWait(driver, 30)
         self.container_selector = container_selector
 
+        """Function: Initializes base scraper with common configuration
+           Special Notes: 
+           - Container selector uses CSS by default for event containers
+           - WebDriverWait set to 30s timeout for all child classes"""
+
     def scroll_to_bottom(self):
         last_height = self.driver.execute_script("return document.body.scrollHeight")
         while True:
@@ -23,6 +28,11 @@ class BaseScraper:
             if new_height == last_height:
                 break
             last_height = new_height
+
+            """Function: Automatically scrolls to page bottom to load dynamic content
+           Special Notes:
+           - Uses incremental height checks to detect end of page
+           - Includes 2s pause between scrolls for content loading"""
 
     def click_next_page(self, current_page: int) -> bool:
         # Allgemeine Implementierung für Paginierung (wird von Kindklassen überschrieben)
@@ -63,3 +73,9 @@ class BaseScraper:
             current_page += 1
         
         return events
+    
+    """Function: Executes full scraping workflow
+           Special Notes:
+           - Implements automatic pagination loop
+           - Tolerates individual event parsing errors
+           - Logs progress with page/item numbers"""
