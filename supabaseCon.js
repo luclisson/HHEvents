@@ -107,7 +107,7 @@ async function insertDataFromScraperToDB(title, link, category, source, location
             {
                 while(eventId ===0)
                 {
-                    eventId = data[i].id
+                    eventId = data[i].id//michel sagt hier muss comment
                 }
                 break
             }

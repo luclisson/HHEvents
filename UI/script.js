@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-            console.log(data); // Log the data to see if it's being fetched correctly
 
             data.forEach((event, i) => {
                 console.log(event)
@@ -58,14 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 tile.className = 'event-tile';
                 const category = event.category;
                 tile.dataset.category = category.toLowerCase(); // Speichert die Kategorie für die Filterung
-                console.log(event.link)
-
+                console.log(event)
                 tile.innerHTML = `
                     <div class="event-header">
                         <span class="event-category">${category}</span>
                         ${i % 5 === 0 ? '<div class="featured-badge">Featured</div>' : ''} <!-- Markiert jedes 5. Event -->
                         <h3 class="event-title">${event.title}</h3>
-                        <time class="event-date">${event.fetchdata[0].date}</time>
+                        <time class="event-date">${event.fetchdata[0].date} at ${event.fetchdata[0].time} o'clock</time>
                     </div>
                     <div class="event-details">
                         <div class="detail-item">
