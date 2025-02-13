@@ -37,66 +37,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Generiert Beispiel-Events beim Laden der Seite
-    generateEvents(20); // Erstellt 20 Events
+    // Generiert Events beim Laden der Seite
+    generateEvents(); // Erstellt Events basierend auf API-Daten
 
     /**
-     * Erstellt eine bestimmte Anzahl von Events und fügt sie dem Event-Container hinzu.
-     * @param {number} amount - Anzahl der zu generierenden Events.
+     * Fetches events from the API and adds them to the event container.
      */
-    function generateEvents(amount) {
-        const categories = ['Musik', 'Kunst', 'Sport', 'Essen']; // Kategorien für Events
-        const locations = [
-            'Elbphilharmonie', 'Reeperbahn', 'Planten un Blomen',
-            'HafenCity', 'Alsterpavillon', 'St. Pauli Theater'
-        ]; // Veranstaltungsorte
+    async function generateEvents() {
+        try {
+            const response = await fetch('http://localhost:3000/fetchData');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
 
-        for (let i = 0; i < amount; i++) {
-            const tile = document.createElement('div'); // Erstellt eine neue Event-Kachel
-            tile.className = 'event-tile';
-            const category = categories[i % categories.length];  // Rotiert durch die Kategorien
-            tile.dataset.category = category.toLowerCase();      // Speichert die Kategorie für die Filterung
+            data.forEach((event, i) => {
+                console.log(event)
+                const tile = document.createElement('div'); // Erstellt eine neue Event-Kachel
+                tile.className = 'event-tile';
+                const category = event.category;
+                tile.dataset.category = category.toLowerCase(); // Speichert die Kategorie für die Filterung
+                console.log(event)
+                tile.innerHTML = `
+                    <div class="event-header">
+                        <span class="event-category">${category}</span>
+                        ${i % 5 === 0 ? '<div class="featured-badge">Featured</div>' : ''} <!-- Markiert jedes 5. Event -->
+                        <h3 class="event-title">${event.title}</h3>
+                        <time class="event-date">${event.fetchdata[0].date} at ${event.fetchdata[0].time} o'clock</time>
+                    </div>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="event-location">${event.location}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-tag"></i>
+                            <span class="event-price">Ab ${event.fetchdata[0].price}€</span>
+                        </div>
+                        <div class="expandable-details">
+                            <p>Lorem ipsum dolor sit amet...</p>
+                            
+                            <a href="${event.link}" class="event-link-button">original source</a>
 
-            tile.innerHTML = `
-                <div class="event-header">
-                    <span class="event-category">${category}</span>
-                    ${i % 5 === 0 ? '<div class="featured-badge">Featured</div>' : ''} <!-- Markiert jedes 5. Event -->
-                    <h3 class="event-title">Event #${i + 1}</h3>
-                    <time class="event-date">${randomDate()}</time> <!-- Zufälliges Datum -->
-                </div>
-                <div class="event-details">
-                    <div class="detail-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span class="event-location">${locations[i % locations.length]}</span> <!-- Veranstaltungsort -->
+                            <button class="more-info">view less</button>
+                        </div>
                     </div>
-                    <div class="detail-item">
-                        <i class="fas fa-tag"></i>
-                        <span class="event-price">Ab ${Math.floor(Math.random() * 50) + 10}€</span> <!-- Zufälliger Preis -->
-                    </div>
-                    <div class="expandable-details">
-                        <p>Lorem ipsum dolor sit amet...</p> <!-- Platzhaltertext -->
-                        <button class="more-info">Tickets buchen</button> <!-- Buchungsbutton -->
-                    </div>
-                </div>
-            `;
-            eventContainer.appendChild(tile); // Fügt die Kachel in den Container ein
+                `;
+                eventContainer.appendChild(tile); // Fügt die Kachel in den Container ein
+            });
+        } catch (error) {
+            console.error('Error fetching events:', error);
         }
-    }
-
-    /**
-     * Generiert ein zufälliges Datum in den nächsten 30 Tagen.
-     * @returns {string} - Formatiertes Datum im deutschen Format.
-     */
-    function randomDate() {
-        const date = new Date();
-        date.setDate(date.getDate() + Math.floor(Math.random() * 30)); // Zufälliger Tag in den nächsten 30 Tagen
-        return date.toLocaleDateString('de-DE', { 
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        });
     }
 
     /**

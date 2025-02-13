@@ -1,9 +1,14 @@
-const dbCon = require('./supabaseCon.js');
-const cron = require('node-cron')
-const express = require('express')
+import { fetchLatestDataWebsite, insertDataFromScraperToDB, fetchAllDataDb } from './supabaseCon.js';
+import { loadJSON } from './scraperCon.js';
+import cron from 'node-cron';
+import express from 'express';
+import cors from 'cors';
+
+
 const app = express()
 const port = 3000
 
+app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -17,37 +22,66 @@ app.get('/fetch/:id', async (req, res) => {
     const id = req.params.id
     if(!id)
     {
-        res.status(404).statusMessage('you need to provide an id')
+        res.status(404).send('you need to provide an id')
     }
     try
     {
-        const data = await dbCon.fetchLatestDataWebsite(id)//test data
+        const data = await fetchLatestDataWebsite(id)//test data
         console.log(data);
         res.send(data)
     }catch(error)
     {
-        res.status(500).statusMessage('something went wrong')
+        res.status(500).send('something went wrong')
         console.error(error)
+    }
+})
+app.get('/insertData', async (req, res) =>{
+    const data = loadJSON('all_events.json');
+    for(let i = 0; i< 15; i++) //5 to not fetch 2000 entities
+    {
+        insertDataFromScraperToDB(data[i].title, data[i].link,
+            data[i].category, data[i].source_url, data[i].location, data[i].img_url, 
+            data[i].price, data[i].event_date, data[i].scraped_at, data[i].time);
+            
+    }
+    if(!data)
+    {
+        res.status(500).send('error while getting scraper data')
+    }else
+    {
+        res.send('successfully received data from the scraper and inserted it to the db')
     }
 })
 app.get('/fetchData', async (req, res)=>{
     console.log("fetchData route was called")
     try
     {
-        //implement fetching db body
-        const data = await dbCon.fetchAllDataDb();
+        const data = await fetchAllDataDb();
         res.send(data);
     }catch(error)
     {
-        res.status(500).statusMessage('something went wrong')
+        res.status(500).send('something went wrong')
     }
 })
 
-cron.schedule('30 01 * * *', async ()=>{
+cron.schedule('39 20 * * *', async ()=>{
     //fetches db everyday at 1.30am
     const response = await fetch('http://localhost:3000/fetchData',{
         method: 'GET'
     });
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
-    console.log(data) 
 })
+
+cron.schedule('38 20 * * *', async ()=>{
+    //code to insert test data, later scraper data
+    const response = await fetch('http://localhost:3000/insertData',{
+        method: 'GET'
+    });
+    console.log(response)
+})
+
+
+/*
+todos:
+- use data from db and update frontend
+*/
