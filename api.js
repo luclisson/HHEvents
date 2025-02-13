@@ -2,11 +2,13 @@ import { fetchLatestDataWebsite, insertDataFromScraperToDB, fetchAllDataDb } fro
 import { loadJSON } from './scraperCon.js';
 import cron from 'node-cron';
 import express from 'express';
+import cors from 'cors';
 
 
 const app = express()
 const port = 3000
 
+app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -76,7 +78,7 @@ app.get('/fetchData', async (req, res)=>{
     }
 })
 
-cron.schedule('45 10 * * *', async ()=>{
+cron.schedule('15 19 * * *', async ()=>{
     //fetches db everyday at 1.30am
     const response = await fetch('http://localhost:3000/fetchData',{
         method: 'GET'
@@ -84,7 +86,7 @@ cron.schedule('45 10 * * *', async ()=>{
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
 })
 
-cron.schedule('08 19 * * *', async ()=>{
+cron.schedule('14 19 * * *', async ()=>{
     //code to insert test data, later scraper data
     const response = await fetch('http://localhost:3000/insertData',{
         method: 'GET'

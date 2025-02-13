@@ -114,8 +114,7 @@ async function insertDataFromScraperToDB(title, link, category, source, location
         }
     }
     await sleep(2000)
-    console.log(`ids: ${eventId}`)
-    console.log(price, date, scrapedAt, eventId, time)
+    console.log(`id: ${eventId}`)
     insertDataToFetchDataTable(price, date,scrapedAt,eventId,time)
 }
 async function fetchLatestDataWebsite(eventID)

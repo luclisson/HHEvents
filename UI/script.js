@@ -44,7 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
      * Erstellt eine bestimmte Anzahl von Events und fügt sie dem Event-Container hinzu.
      * @param {number} amount - Anzahl der zu generierenden Events.
      */
-    function generateEvents(amount) {
+    async function generateEvents(amount) {
+        const response = await fetch('http://localhost:3000/fetchData',{
+        method: 'GET'
+        });
+        const data = await response.json();
+        
+        console.log(data)
         const categories = ['Musik', 'Kunst', 'Sport', 'Essen']; // Kategorien für Events
         const locations = [
             'Elbphilharmonie', 'Reeperbahn', 'Planten un Blomen',
