@@ -6,12 +6,16 @@ from event import Event
 import logging
 import re
 import time
+import datetime
 
 class HHgegenrechtsScraper(BaseScraper):
-    DATE_REGEX = re.compile(r"(\d{2}\.\d{2}\.\d{4})")
+    DATE_RANGE_REGEX = re.compile(
+        r"(\d{2}\.\d{2})\.?\s*-\s*(\d{2}\.\d{2})\.?"
+    )
     TIME_REGEX = re.compile(r"(\d{2}:\d{2})")
 
     def __init__(self, driver):
+        self.current_year = datetime.datetime.now().year
         super().__init__(
             driver=driver,
             source_name="HH gegen Rechts",
@@ -60,17 +64,30 @@ class HHgegenrechtsScraper(BaseScraper):
                 logging.warning(f"Ladefehler: {str(e)}")
                 break
 
+                """Function: Loads paginated content via AJAX
+           Special Notes:
+           - Uses JavaScript click for reliability
+           - Tracks loaded pages to prevent duplicates
+           - Implements safety counter (max_load_attempts)
+           - Detects failed loads through container count"""
+
     def parse_event(self, container) -> Event:
         try:
-            # Datumsextraktion
             date_element = container.find_element(By.CSS_SELECTOR, "div.callout_date")
-            raw_date = self._clean_date(date_element.get_attribute("textContent"))
+            raw_date = date_element.get_attribute("textContent") 
             
-            date_match = self.DATE_REGEX.search(raw_date)
-            time_match = self.TIME_REGEX.search(raw_date)
-            
-            event_date = date_match.group(1) if date_match else "01.01.1970"
-            time = time_match.group(1) if time_match else "00:00"
+            # Jahr hinzufügen
+            match = self.DATE_RANGE_REGEX.match(raw_date)
+            if match:
+                start = f"{match.group(1).strip('. ')}.{self.current_year}"
+                end = f"{match.group(2).strip('. ')}.{self.current_year}"
+                formatted_date = f"{start} - {end}"
+            else:
+                formatted_date = f"{raw_date.strip('. ')}.{self.current_year}"
+
+            # Zeit Extraktion
+            time_element = container.find_element(By.CSS_SELECTOR, "span.decm_date")
+            event_time = time_element.get_attribute("textContent")
 
             # Titel und Link
             title_element = container.find_element(By.CSS_SELECTOR, "h2.entry-title a")
@@ -98,8 +115,8 @@ class HHgegenrechtsScraper(BaseScraper):
                 source_url=self.driver.current_url,
                 title=title.strip(),
                 link=link,
-                event_date=event_date,
-                time=time,
+                event_date=formatted_date,
+                time=event_time,
                 category=", ".join(categories) if categories else "Vortrag",
                 location=self._parse_location(title),
                 img_url=img_url
@@ -128,4 +145,5 @@ class HHgegenrechtsScraper(BaseScraper):
         return "Hamburg"
 
     def click_next_page(self, current_page: int) -> bool:
+        logging.info(f"Current page: {current_page}")
         return False

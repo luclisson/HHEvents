@@ -49,3 +49,10 @@ class UebelUndGefaehrlichScraper(BaseScraper):
         except Exception as e:
             logging.error(f"Fehler beim Parsen: {str(e)}")
             return None
+        
+        """Function: Extracts event details from container element
+        Special Notes:
+        - Uses microdata/itemprop attributes for reliable parsing
+        - Converts ISO 8601 datetime from meta tags
+        - Implements fallback patterns (static regex)
+        - Returns None on parsing errors to skip invalid entries"""
