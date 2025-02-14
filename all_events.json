@@ -9,7 +9,7 @@
     "location": "Docks Freiheit36",
     "price": 19.98,
     "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F8c2c0726-d518-4e5a-be39-a2de46d098c1%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:17.394443"
+    "scraped_at": "2025-02-14T17:09:09.304915"
   },
   {
     "source_url": "https://docksfreiheit36.de/docks/",
@@ -21,7 +21,7 @@
     "location": "Docks Freiheit36",
     "price": null,
     "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fce25f756-bac4-4561-b2bc-63832bab4cbe%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:17.464887"
+    "scraped_at": "2025-02-14T17:09:09.517992"
   },
   {
     "source_url": "https://docksfreiheit36.de/docks/",
@@ -33,667 +33,7 @@
     "location": "Docks Freiheit36",
     "price": 52.8,
     "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F39587287-3138-4e8b-af1a-554de8eb5f5f%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:17.535581"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Emre Fel",
-    "link": "https://docksfreiheit36.de/event?slug=601544fc-afb6-4b5a-bdf5-48123e7defc8&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 46.75,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fab25c733-7212-49ed-9203-0059d91c1909%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:17.605778"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Omar Rudberg",
-    "link": "https://docksfreiheit36.de/event?slug=b65d4a85-732c-4180-8435-7b0c14dcc8f0&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 35.2,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F83cd9d7c-af42-4a05-84a9-98da6efc3000%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:17.768370"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Zartmann",
-    "link": "https://docksfreiheit36.de/event?slug=23e9606e-62a0-459a-a2f8-13ec64ac76ee&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": null,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F436ce551-70df-4491-a33d-56979ac9c922%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:17.838527"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Zartmann",
-    "link": "https://docksfreiheit36.de/event?slug=5bdfcb24-a3fe-4d7b-9516-7315f5edc552&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": null,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F0a25c167-d931-4918-8404-d55ea07fd4e6%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:17.908782"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Animals As Leaders",
-    "link": "https://docksfreiheit36.de/event?slug=33cef6f7-b5c2-42e2-8969-b1e343d4a0f2&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 42.1,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F0b968421-0c24-44e5-9431-a98af63fc9d4%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:17.980746"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Feuerengel",
-    "link": "https://docksfreiheit36.de/event?slug=eb69623f-977b-45aa-9f48-337f0e8c8e0a&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": null,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F536bb75d-f40a-4f8b-9648-d29597430429%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.108903"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Deborah De Luca",
-    "link": "https://docksfreiheit36.de/event?slug=f87ae433-7f8f-44a8-8a04-23a30908decb&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 29.99,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F145520fe-af85-4cf3-b8d4-8da087603d1e%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.180366"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Marcus & Martinus",
-    "link": "https://docksfreiheit36.de/event?slug=cc0d9e6a-91c4-4757-90d0-29c5f50aabcf&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 46.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Ffa9e8448-edf1-4546-aa72-9fd90caec4bd%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.256523"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Deadly Guns Black Reaper Night",
-    "link": "https://docksfreiheit36.de/event?slug=0a16e9e2-e98a-4fce-bdbf-cea1a67d6c50&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 29.99,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fd5d72158-74e7-43de-b51e-6477213e7540%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.327400"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Bloodywood",
-    "link": "https://docksfreiheit36.de/event?slug=bbcc0a4c-a849-4bf8-8e7b-d022c648372c&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 35.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F7d5945de-bf15-44b9-857b-9d7c40dffe0d%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.397736"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Berlioz",
-    "link": "https://docksfreiheit36.de/event?slug=5bf7b893-023e-49d5-846c-bc44a69bbf7a&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": null,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F314ffb77-da41-46d5-b003-de2c1f9afd98%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.466543"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Natalie Jane",
-    "link": "https://docksfreiheit36.de/event?slug=27beddbb-6f1f-426d-895a-05fe7141978f&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 42.2,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F2844f70a-4e43-4da3-9858-5a1d529156d6%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.535435"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Dendemann",
-    "link": "https://docksfreiheit36.de/event?slug=24063031-05a4-400d-956d-b247b674fae0&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": null,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fd090646b-87ed-4dde-9fc2-10e440193e46%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.604766"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "AR Gang",
-    "link": "https://docksfreiheit36.de/event?slug=49e49b9e-ea0c-4797-8f85-2f02ccfe2ac0&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 29.99,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F6802c5ef-b042-4885-95d8-5fd6b76b63eb%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:20.673232"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "TJARK",
-    "link": "https://docksfreiheit36.de/event?slug=f06d7099-fd23-49fd-8bed-33570200c310&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 39.2,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F5dadae87-a631-48f6-a61c-914810fb8599%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:22.779621"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "The Game",
-    "link": "https://docksfreiheit36.de/event?slug=e3bd19be-c480-489a-b2fe-21b649a1d715&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 50.15,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F33c890c7-07af-4971-acff-b1ab60df5a11%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:22.857732"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "The Baboon Show",
-    "link": "https://docksfreiheit36.de/event?slug=247beaff-140c-4806-91c2-c2983fec185a&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 45.8,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F41967439-eea2-443a-8090-6727bd7fc321%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:22.926781"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "The Baboon Show",
-    "link": "https://docksfreiheit36.de/event?slug=c469b7b8-0461-4b50-b53e-5a6e7ebba365&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 49.35,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F3cd764f6-1c65-4369-852d-3b6acf1c9af0%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:23.016065"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Zimmer90",
-    "link": "https://docksfreiheit36.de/event?slug=f53a6f49-fbff-4ba6-aeac-1e9e8c014649&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 39.95,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fa303da13-08cf-4c99-b90d-309e5ee7f055%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:23.084555"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Showtek",
-    "link": "https://docksfreiheit36.de/event?slug=9f15a9ef-d41a-441f-9726-c934639d0516&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 29.99,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Ffeafa46b-d930-41f5-bbec-9ad90339b25c%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:23.153825"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Alec Benjamin",
-    "link": "https://docksfreiheit36.de/event?slug=e28ee22e-247c-4280-a29f-bfe1d17906b6&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 46.3,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F78381cd4-7db1-4a11-8e99-0dd29d69a7ee%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:23.224399"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Yung Hurn",
-    "link": "https://docksfreiheit36.de/event?slug=168a3371-1823-4f91-8d4c-cd788884de4a&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 55.25,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F20444847-7ac3-4ae7-a4cf-be7ef426c120%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:23.295769"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "JORIS",
-    "link": "https://docksfreiheit36.de/event?slug=c5551c20-dbd9-432b-9742-8dc4b43c7041&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 38.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F4fba8c1e-2b05-4b67-a07c-fa3c14b5d840%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:23.365660"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "DUAL DAMAGE - KINGS OF RAW",
-    "link": "https://docksfreiheit36.de/event?slug=df7bde3d-a8d8-4073-8706-ac7ab4063fab&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 21.04,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F22267aca-5aba-46c2-aa20-d7eca503cb95%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:25.490770"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "The Pineapple Thief",
-    "link": "https://docksfreiheit36.de/event?slug=95061e8b-e18f-4647-b46e-2d23c811e5bb&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 41.49,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F428e4f77-8e83-4ccd-8fed-c4b13bfa02a5%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:25.563199"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Social Distortion",
-    "link": "https://docksfreiheit36.de/event?slug=2fb00d26-6c3c-4154-b391-c8a13d64aec0&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 55.65,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F0b478c39-547f-45c4-86d1-3ea0dc2024d3%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:25.654200"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Social Distortion",
-    "link": "https://docksfreiheit36.de/event?slug=09af8c5a-fec7-42b8-b640-95c642857e60&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 55.65,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fe62657eb-0c78-417a-891e-2e0640c0255d%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:25.723094"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Serum 114",
-    "link": "https://docksfreiheit36.de/event?slug=32ce0d8f-b3f6-4747-bce7-09caa10d684f&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 39.3,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fd263e802-d4b1-405a-a26e-1c27a4b68088%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:25.791360"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Ivo Martin",
-    "link": "https://docksfreiheit36.de/event?slug=7d8325b6-159b-42e7-ab49-2518d8a1cd13&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 38.99,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F382d35c9-d85b-4de2-8298-7f07c01dd79b%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:25.861185"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "The Hellacopters",
-    "link": "https://docksfreiheit36.de/event?slug=e3e2a95c-cef2-4811-848b-e2a8e408b6c4&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 52.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F53972687-6925-415d-9c99-d13a2a6cfea6%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:25.930454"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "CARV - THIS IS TECHNO",
-    "link": "https://docksfreiheit36.de/event?slug=d63473c0-53f8-4417-a4bf-0f2659ea20c6&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 21.04,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F2b2d7c3e-d2fe-4ceb-a169-6cf8ca1e0db0%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:26.004503"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Capital Bra",
-    "link": "https://docksfreiheit36.de/event?slug=3ee644bc-4f12-415c-b4a4-46669e0dfea4&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 61.5,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fd1b816f0-bb50-4e9c-be1c-67fdb063808e%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:26.074700"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Alice Phoebe Lou",
-    "link": "https://docksfreiheit36.de/event?slug=c5f30b3b-d633-4d17-8df2-16a899486724&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 35.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F9e6567fb-56d0-463d-9e1c-ec9e46e92aed%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:28.180384"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "AK Ausserkontrolle",
-    "link": "https://docksfreiheit36.de/event?slug=e56eef82-8d5a-4adf-b739-d47812525a36&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 39.99,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F8a3fc0da-cf6c-4288-8638-8a17a828c144%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:28.248392"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Subway to Sally",
-    "link": "https://docksfreiheit36.de/event?slug=49bbcfb7-164d-4e65-aa01-e6385405261b&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 40.0,
-    "img_url": "https://docksfreiheit36.de/wp-content/themes/rs-theme/assets/img/placeholderimg.png",
-    "scraped_at": "2025-02-13T12:53:28.316899"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Kip Moore",
-    "link": "https://docksfreiheit36.de/event?slug=6c957798-8052-4d5d-b55f-56dcec999db3&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 45.15,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F4564575a-ceed-4a90-a493-2627a9d4a21f%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:28.385152"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Reconstruction Tour",
-    "link": "https://docksfreiheit36.de/event?slug=2980a8ae-8bcb-4b3f-8fcd-da86e5931b0c&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 50.5,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fe1cfb2cd-aa24-4285-9967-7c9ed0289a03%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:28.452580"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "LIL TEXAS - UPTEMPO DOMINATION",
-    "link": "https://docksfreiheit36.de/event?slug=41637bed-d916-4410-ba57-709e9bcc8781&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 21.04,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fad82e388-9c92-42b3-80a5-6cb0f18c15c8%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:28.521693"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Kwiat Jabloni",
-    "link": "https://docksfreiheit36.de/event?slug=d412241f-712c-4267-8afb-a43cafe5bdd8&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 49.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Faab65e57-35ff-41f2-8867-ec5252beccb7%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:28.590590"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Amistat",
-    "link": "https://docksfreiheit36.de/event?slug=a7f80751-8765-4e15-89e0-36d24fd6f3ec&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 37.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fe06d7099-9b7f-48d7-b50b-b959a0f80b25%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:28.658886"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Money Boy",
-    "link": "https://docksfreiheit36.de/event?slug=00f6b514-4191-475c-8749-d74b75e47202&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 36.7,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F8db9fe5e-4c8a-4701-9332-836bcd06dab2%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:28.733640"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "One Step Closer",
-    "link": "https://docksfreiheit36.de/event?slug=47b6d8be-224f-4a94-b113-5cf996bd2ecc&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 41.5,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F16fef0fd-73f0-499c-b399-1b02d59fbb01%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:30.849371"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Bleed From Within",
-    "link": "https://docksfreiheit36.de/event?slug=4cf46580-10b8-463c-9102-5bd3e4b56095&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 32.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F244df4d8-3199-415a-b65e-e09244d7f46b%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:30.918226"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "HVOB",
-    "link": "https://docksfreiheit36.de/event?slug=400006a8-3cbb-4181-8cec-7262f74d45d3&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 40.78,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F5048f70b-8dfc-4118-9518-c0463c31edfc%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:30.987241"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "W.A.S.P",
-    "link": "https://docksfreiheit36.de/event?slug=473488cb-14e6-46d9-bf8a-f3690a3dc3a3&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 51.15,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F73036dbe-687a-4e36-80a0-e75b23f254f1%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:31.066025"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "257ers",
-    "link": "https://docksfreiheit36.de/event?slug=04918ba6-0d8d-497d-9617-7b53b390d066&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 44.25,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fcdb32ea4-57e0-4ffe-a3c3-bf284cde88a5%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:31.138684"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Tom Hengst",
-    "link": "https://docksfreiheit36.de/event?slug=1b257a3d-e6e2-407e-90d4-3814e3cbb06b&clr=red",
-    "event_date": "18.10.2025",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 39.2,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F3be1f7b2-be33-4967-8ef6-75539037dca9%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:31.205669"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Uriah Heep",
-    "link": "https://docksfreiheit36.de/event?slug=d3260a05-9841-4160-ba85-868accdb3db4&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 69.85,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F7994fb93-ca71-47f2-b977-6360c769becd%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:31.358944"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "H-Blockx",
-    "link": "https://docksfreiheit36.de/event?slug=ae113972-fc46-4d78-9644-8fe7d95c6053&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 40.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fc024ef65-e342-424b-892e-706cbb481574%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:31.428160"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "London Symphonic Rock Orchestra",
-    "link": "https://docksfreiheit36.de/event?slug=314249b4-033d-49b6-9a85-9533ae670801&clr=red",
-    "event_date": "20.11.2025",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 39.7,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F1edd7f14-cc73-4768-808b-203b724719fe%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:33.541440"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Frank Martini",
-    "link": "https://docksfreiheit36.de/event?slug=154df9c0-06c5-4d5b-ad84-4ef5b957ad86&clr=red",
-    "event_date": "29.11.2025",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 34.0,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F6cbb48b8-b817-4649-8896-b028ea9e8d08%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:33.610008"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Audio 88 & Yassin",
-    "link": "https://docksfreiheit36.de/event?slug=ee6a4ca3-df09-4cdf-a5e9-e7befa96f5d1&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 44.25,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F87bd65b6-07de-4d10-a489-8196796e20c2%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:33.677186"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Monet192",
-    "link": "https://docksfreiheit36.de/event?slug=0ec7f1de-f0b7-456a-a351-e83f45ef3ec1&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 39.14,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F7c83b085-085b-4ee8-bd5c-445ebcb641a2%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:33.745291"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "SYML",
-    "link": "https://docksfreiheit36.de/event?slug=1361b5ff-aada-4402-9221-be05cc66750f&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 40.55,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fdc9bdc10-5474-4c08-b01e-1554b83db6b6%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:33.811624"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/docks/",
-    "title": "Julian Sommer",
-    "link": "https://docksfreiheit36.de/event?slug=fd174af8-ef01-46ca-8ded-366dfaf6fce1&clr=red",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Docks Freiheit36",
-    "price": 39.9,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fc758d9ab-2927-48ea-944f-2946e8d3f1d3%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:33.879077"
+    "scraped_at": "2025-02-14T17:09:09.649190"
   },
   {
     "source_url": "https://docksfreiheit36.de/prinzenbar/",
@@ -705,7 +45,7 @@
     "location": "Prinzenbar",
     "price": 29.99,
     "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F145520fe-af85-4cf3-b8d4-8da087603d1e%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:35.016186"
+    "scraped_at": "2025-02-14T17:09:11.731870"
   },
   {
     "source_url": "https://docksfreiheit36.de/prinzenbar/",
@@ -717,7 +57,7 @@
     "location": "Prinzenbar",
     "price": 29.99,
     "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fd5d72158-74e7-43de-b51e-6477213e7540%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:35.090021"
+    "scraped_at": "2025-02-14T17:09:11.857612"
   },
   {
     "source_url": "https://docksfreiheit36.de/prinzenbar/",
@@ -729,67 +69,7 @@
     "location": "Prinzenbar",
     "price": 29.99,
     "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2F6802c5ef-b042-4885-95d8-5fd6b76b63eb%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:35.163704"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/prinzenbar/",
-    "title": "Showtek",
-    "link": "https://docksfreiheit36.de/event?slug=9f15a9ef-d41a-441f-9726-c934639d0516&clr=pink",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Prinzenbar",
-    "price": 29.99,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Ffeafa46b-d930-41f5-bbec-9ad90339b25c%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:35.232509"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/prinzenbar/",
-    "title": "LIL TEXAS - UPTEMPO DOMINATION",
-    "link": "https://docksfreiheit36.de/event?slug=41637bed-d916-4410-ba57-709e9bcc8781&clr=pink",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Prinzenbar",
-    "price": 21.04,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fad82e388-9c92-42b3-80a5-6cb0f18c15c8%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:35.303200"
-  },
-  {
-    "source_url": "https://docksfreiheit36.de/prinzenbar/",
-    "title": "Taimane",
-    "link": "https://docksfreiheit36.de/event?slug=8c4f1a77-2d5f-4035-bbf8-5d5c3e4b0c52&clr=pink",
-    "event_date": "01.01.1970",
-    "time": "20:00",
-    "category": "Konzert",
-    "location": "Prinzenbar",
-    "price": 32.4,
-    "img_url": "https://images.copilot.events/resize?url=https%3A%2F%2Fcopilot.events%2Fmtm%2Fapi%2Ffiles%2Fb577d441-3072-4009-b016-158ce1651648%2Fpreview%2Fpreview.jpeg&width=640&quality=50&instanceId=mtm",
-    "scraped_at": "2025-02-13T12:53:35.373312"
-  },
-  {
-    "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
-    "title": "STATE CHAMPS",
-    "link": "https://www.uebelundgefaehrlich.com/veranstaltungen/state-champs-12-02-2025/",
-    "event_date": "12.02.2025",
-    "time": "19:45",
-    "category": "Club Event",
-    "location": "Ballsaal",
-    "price": null,
-    "img_url": null,
-    "scraped_at": "2025-02-13T12:53:37.899005"
-  },
-  {
-    "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
-    "title": "HAM.LIT | AUSVERKAUFT",
-    "link": "https://www.uebelundgefaehrlich.com/veranstaltungen/ham-lit-2/",
-    "event_date": "13.02.2025",
-    "time": "19:00",
-    "category": "Club Event",
-    "location": "Ballsaal & Turmzimmer",
-    "price": null,
-    "img_url": null,
-    "scraped_at": "2025-02-13T12:53:37.960100"
+    "scraped_at": "2025-02-14T17:09:11.896174"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -801,7 +81,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.020441"
+    "scraped_at": "2025-02-14T17:09:17.463047"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -813,7 +93,7 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.078909"
+    "scraped_at": "2025-02-14T17:09:17.687771"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -825,7 +105,7 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.182818"
+    "scraped_at": "2025-02-14T17:09:18.995518"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -837,7 +117,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.249210"
+    "scraped_at": "2025-02-14T17:09:19.410346"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -849,7 +129,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.310449"
+    "scraped_at": "2025-02-14T17:09:19.469146"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -861,7 +141,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.370133"
+    "scraped_at": "2025-02-14T17:09:19.533627"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -873,7 +153,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.446467"
+    "scraped_at": "2025-02-14T17:09:19.595673"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -885,7 +165,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.503945"
+    "scraped_at": "2025-02-14T17:09:19.625871"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -897,7 +177,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.560083"
+    "scraped_at": "2025-02-14T17:09:19.655021"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -909,7 +189,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.616535"
+    "scraped_at": "2025-02-14T17:09:19.696699"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -921,7 +201,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.675559"
+    "scraped_at": "2025-02-14T17:09:19.749094"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -933,7 +213,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.731532"
+    "scraped_at": "2025-02-14T17:09:19.784112"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -945,7 +225,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.789292"
+    "scraped_at": "2025-02-14T17:09:19.835386"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -957,7 +237,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.845170"
+    "scraped_at": "2025-02-14T17:09:20.623872"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -969,7 +249,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.908719"
+    "scraped_at": "2025-02-14T17:09:20.754673"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -981,7 +261,7 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:38.984679"
+    "scraped_at": "2025-02-14T17:09:20.821534"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -993,7 +273,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.061745"
+    "scraped_at": "2025-02-14T17:09:20.883286"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1005,7 +285,7 @@
     "location": "",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.134214"
+    "scraped_at": "2025-02-14T17:09:20.923494"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1017,7 +297,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.210071"
+    "scraped_at": "2025-02-14T17:09:20.960555"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1029,7 +309,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.283450"
+    "scraped_at": "2025-02-14T17:09:21.000965"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1041,7 +321,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.361719"
+    "scraped_at": "2025-02-14T17:09:21.029695"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1053,7 +333,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.426967"
+    "scraped_at": "2025-02-14T17:09:21.059119"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1065,7 +345,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.483533"
+    "scraped_at": "2025-02-14T17:09:21.107638"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1077,7 +357,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.541586"
+    "scraped_at": "2025-02-14T17:09:21.140988"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1089,7 +369,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.597923"
+    "scraped_at": "2025-02-14T17:09:21.193121"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1101,7 +381,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.656611"
+    "scraped_at": "2025-02-14T17:09:21.221087"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1113,7 +393,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.713349"
+    "scraped_at": "2025-02-14T17:09:21.252444"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1125,7 +405,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.769301"
+    "scraped_at": "2025-02-14T17:09:21.282166"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1137,7 +417,7 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.825555"
+    "scraped_at": "2025-02-14T17:09:21.319461"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1149,19 +429,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.886028"
-  },
-  {
-    "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
-    "title": "KENT OSBORNE",
-    "link": "https://www.uebelundgefaehrlich.com/veranstaltungen/kent-osborne/",
-    "event_date": "12.03.2025",
-    "time": "20:00",
-    "category": "Club Event",
-    "location": "Turmzimmer",
-    "price": null,
-    "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.942143"
+    "scraped_at": "2025-02-14T17:09:21.370272"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1173,7 +441,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:39.998334"
+    "scraped_at": "2025-02-14T17:09:21.472194"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1185,7 +453,19 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.058813"
+    "scraped_at": "2025-02-14T17:09:21.507280"
+  },
+  {
+    "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
+    "title": "HOLLYWOOD TRAMP - GAGA CLUB NIGHT",
+    "link": "https://www.uebelundgefaehrlich.com/veranstaltungen/hollywood-tramp-gaga-club-night/",
+    "event_date": "15.03.2025",
+    "time": "23:59",
+    "category": "Club Event",
+    "location": "Ballsaal & Turmzimmer",
+    "price": null,
+    "img_url": null,
+    "scraped_at": "2025-02-14T17:09:21.554844"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1197,7 +477,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.125639"
+    "scraped_at": "2025-02-14T17:09:21.590040"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1209,7 +489,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.190510"
+    "scraped_at": "2025-02-14T17:09:21.635207"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1221,7 +501,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.259369"
+    "scraped_at": "2025-02-14T17:09:21.668003"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1233,7 +513,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.328930"
+    "scraped_at": "2025-02-14T17:09:21.699663"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1245,7 +525,7 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.396699"
+    "scraped_at": "2025-02-14T17:09:21.730512"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1257,7 +537,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.466253"
+    "scraped_at": "2025-02-14T17:09:21.761424"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1269,7 +549,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.531979"
+    "scraped_at": "2025-02-14T17:09:21.793562"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1281,7 +561,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.604024"
+    "scraped_at": "2025-02-14T17:09:21.857018"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1293,7 +573,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.662394"
+    "scraped_at": "2025-02-14T17:09:21.891198"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1305,7 +585,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.721637"
+    "scraped_at": "2025-02-14T17:09:21.925565"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1317,7 +597,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.784091"
+    "scraped_at": "2025-02-14T17:09:21.959508"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1329,7 +609,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.845515"
+    "scraped_at": "2025-02-14T17:09:21.995427"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1341,7 +621,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.903968"
+    "scraped_at": "2025-02-14T17:09:22.027668"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1353,7 +633,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:40.961479"
+    "scraped_at": "2025-02-14T17:09:23.931207"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1365,7 +645,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.021650"
+    "scraped_at": "2025-02-14T17:09:24.047006"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1377,7 +657,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.124915"
+    "scraped_at": "2025-02-14T17:09:24.141117"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1389,7 +669,7 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.195958"
+    "scraped_at": "2025-02-14T17:09:24.175112"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1401,7 +681,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.260355"
+    "scraped_at": "2025-02-14T17:09:24.203665"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1413,7 +693,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.320112"
+    "scraped_at": "2025-02-14T17:09:24.243264"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1425,7 +705,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.379184"
+    "scraped_at": "2025-02-14T17:09:24.272525"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1437,7 +717,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.440983"
+    "scraped_at": "2025-02-14T17:09:24.300955"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1449,7 +729,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.504295"
+    "scraped_at": "2025-02-14T17:09:24.329561"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1461,7 +741,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.561379"
+    "scraped_at": "2025-02-14T17:09:24.374835"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1473,7 +753,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.622352"
+    "scraped_at": "2025-02-14T17:09:24.423410"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1485,7 +765,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.682196"
+    "scraped_at": "2025-02-14T17:09:24.451485"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1497,7 +777,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.739830"
+    "scraped_at": "2025-02-14T17:09:24.479794"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1509,7 +789,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.797787"
+    "scraped_at": "2025-02-14T17:09:24.527712"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1521,7 +801,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.854928"
+    "scraped_at": "2025-02-14T17:09:24.556854"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1533,7 +813,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.914237"
+    "scraped_at": "2025-02-14T17:09:24.588021"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1545,7 +825,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:41.971713"
+    "scraped_at": "2025-02-14T17:09:24.624084"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1557,7 +837,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.031070"
+    "scraped_at": "2025-02-14T17:09:24.654430"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1569,11 +849,11 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.089206"
+    "scraped_at": "2025-02-14T17:09:24.699835"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
-    "title": "GARETH",
+    "title": "GARETH | VERLEGT IN DAS INDRA",
     "link": "https://www.uebelundgefaehrlich.com/veranstaltungen/gareth/",
     "event_date": "03.05.2025",
     "time": "18:00",
@@ -1581,7 +861,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.147720"
+    "scraped_at": "2025-02-14T17:09:24.737853"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1593,7 +873,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.207847"
+    "scraped_at": "2025-02-14T17:09:24.766284"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1605,7 +885,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.268295"
+    "scraped_at": "2025-02-14T17:09:24.794598"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1617,7 +897,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.327757"
+    "scraped_at": "2025-02-14T17:09:24.822831"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1629,7 +909,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.388096"
+    "scraped_at": "2025-02-14T17:09:24.851053"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1641,7 +921,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.447436"
+    "scraped_at": "2025-02-14T17:09:24.889216"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1653,7 +933,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.505461"
+    "scraped_at": "2025-02-14T17:09:24.917150"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1665,7 +945,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.561952"
+    "scraped_at": "2025-02-14T17:09:24.946140"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1677,7 +957,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.620520"
+    "scraped_at": "2025-02-14T17:09:24.974203"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1689,7 +969,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.679306"
+    "scraped_at": "2025-02-14T17:09:25.018199"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1701,7 +981,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.737825"
+    "scraped_at": "2025-02-14T17:09:25.046533"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1713,7 +993,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.795305"
+    "scraped_at": "2025-02-14T17:09:25.075767"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1725,7 +1005,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.854523"
+    "scraped_at": "2025-02-14T17:09:25.103825"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1737,7 +1017,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.937718"
+    "scraped_at": "2025-02-14T17:09:25.138974"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1749,7 +1029,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:42.995730"
+    "scraped_at": "2025-02-14T17:09:25.173216"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1761,7 +1041,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.053544"
+    "scraped_at": "2025-02-14T17:09:25.201329"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1773,7 +1053,7 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.110801"
+    "scraped_at": "2025-02-14T17:09:25.232618"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1785,7 +1065,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.209363"
+    "scraped_at": "2025-02-14T17:09:25.287893"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1797,7 +1077,7 @@
     "location": "Ballsaal & Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.267368"
+    "scraped_at": "2025-02-14T17:09:25.324804"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1809,7 +1089,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.324532"
+    "scraped_at": "2025-02-14T17:09:25.353626"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1821,7 +1101,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.383221"
+    "scraped_at": "2025-02-14T17:09:25.381857"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1833,7 +1113,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.446878"
+    "scraped_at": "2025-02-14T17:09:25.410778"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1845,7 +1125,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.505682"
+    "scraped_at": "2025-02-14T17:09:25.438810"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1857,7 +1137,7 @@
     "location": "Turmzimmer",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.563306"
+    "scraped_at": "2025-02-14T17:09:25.466568"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1869,7 +1149,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.621178"
+    "scraped_at": "2025-02-14T17:09:25.494281"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1881,7 +1161,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.677790"
+    "scraped_at": "2025-02-14T17:09:25.526132"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1893,7 +1173,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.736995"
+    "scraped_at": "2025-02-14T17:09:25.558142"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1905,7 +1185,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.794859"
+    "scraped_at": "2025-02-14T17:09:25.598751"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1917,7 +1197,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.855376"
+    "scraped_at": "2025-02-14T17:09:25.633032"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1929,7 +1209,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.916392"
+    "scraped_at": "2025-02-14T17:09:25.676984"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1941,7 +1221,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:43.975372"
+    "scraped_at": "2025-02-14T17:09:25.717695"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1953,7 +1233,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:44.030457"
+    "scraped_at": "2025-02-14T17:09:25.749169"
   },
   {
     "source_url": "https://www.uebelundgefaehrlich.com/veranstaltungen/",
@@ -1965,7 +1245,7 @@
     "location": "Ballsaal",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:53:44.089873"
+    "scraped_at": "2025-02-14T17:09:25.792873"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -1977,7 +1257,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.175807"
+    "scraped_at": "2025-02-14T17:10:42.244369"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -1989,31 +1269,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.315460"
-  },
-  {
-    "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
-    "title": "Noch mehr Gründe für Solidarität – Keine Auslieferung nach Ungarn!",
-    "link": "https://vernetztgegenrechts.hamburg/event/noch-mehr-gruende-fuer-solidaritaet-keine-auslieferung-nach-ungarn/",
-    "event_date": "01.01.1970",
-    "time": "00:00",
-    "category": "Gespräch, Vortrag",
-    "location": "Hamburg",
-    "price": null,
-    "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.379999"
-  },
-  {
-    "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
-    "title": "Der Weg der AfD zur (neo-)faschistischen Partei – was tun?",
-    "link": "https://vernetztgegenrechts.hamburg/event/der-weg-der-afd-zur-neo-faschistischen-partei-was-tun/",
-    "event_date": "01.01.1970",
-    "time": "00:00",
-    "category": "Diskussion, Vortrag",
-    "location": "Hamburg",
-    "price": null,
-    "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.442275"
+    "scraped_at": "2025-02-14T17:10:43.159397"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2025,7 +1281,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.505342"
+    "scraped_at": "2025-02-14T17:10:43.333078"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2037,7 +1293,19 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.562119"
+    "scraped_at": "2025-02-14T17:10:43.417087"
+  },
+  {
+    "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
+    "title": "Demo für Vielfalt in Ammersbek",
+    "link": "https://vernetztgegenrechts.hamburg/event/demo-fuer-vielfalt-in-ammersbek/",
+    "event_date": "01.01.1970",
+    "time": "00:00",
+    "category": "Demonstration",
+    "location": "Hamburg",
+    "price": null,
+    "img_url": null,
+    "scraped_at": "2025-02-14T17:10:43.458457"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2049,7 +1317,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.618876"
+    "scraped_at": "2025-02-14T17:10:43.525647"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2061,7 +1329,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.676034"
+    "scraped_at": "2025-02-14T17:10:43.553262"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2073,7 +1341,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.748499"
+    "scraped_at": "2025-02-14T17:10:43.589548"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2085,7 +1353,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.805760"
+    "scraped_at": "2025-02-14T17:10:43.714502"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2097,7 +1365,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.861404"
+    "scraped_at": "2025-02-14T17:10:43.752639"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2109,7 +1377,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.922088"
+    "scraped_at": "2025-02-14T17:10:43.963424"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2121,7 +1389,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:46.971299"
+    "scraped_at": "2025-02-14T17:10:44.069343"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2133,7 +1401,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:47.020653"
+    "scraped_at": "2025-02-14T17:10:44.131919"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2145,7 +1413,7 @@
     "location": "Gedenkstätte Fuhlsbüttel, Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:47.082294"
+    "scraped_at": "2025-02-14T17:10:44.184878"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2157,7 +1425,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:47.137314"
+    "scraped_at": "2025-02-14T17:10:44.214149"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2169,7 +1437,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:47.197710"
+    "scraped_at": "2025-02-14T17:10:44.255803"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2181,7 +1449,7 @@
     "location": "Gedenkstätte Fuhlsbüttel, Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:47.258006"
+    "scraped_at": "2025-02-14T17:10:44.299039"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2193,7 +1461,7 @@
     "location": "Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:47.320532"
+    "scraped_at": "2025-02-14T17:10:44.351562"
   },
   {
     "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
@@ -2205,6 +1473,18 @@
     "location": "Gedenkstätte Fuhlsbüttel, Hamburg",
     "price": null,
     "img_url": null,
-    "scraped_at": "2025-02-13T12:54:47.382733"
+    "scraped_at": "2025-02-14T17:10:44.384485"
+  },
+  {
+    "source_url": "https://vernetztgegenrechts.hamburg/veranstaltungen-2/",
+    "title": "Deutsche Lebensrealitäten – Perspektiven von Romnja und Sintizze",
+    "link": "https://vernetztgegenrechts.hamburg/event/deutsche-lebensrealitaeten-perspektiven-von-romnja-und-sintizze/",
+    "event_date": "01.01.1970",
+    "time": "00:00",
+    "category": "Vortrag",
+    "location": "Hamburg",
+    "price": null,
+    "img_url": null,
+    "scraped_at": "2025-02-14T17:10:44.413687"
   }
 ]

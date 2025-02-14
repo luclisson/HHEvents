@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 tile.className = 'event-tile';
                 const category = event.category;
                 tile.dataset.category = category.toLowerCase(); // Speichert die Kategorie für die Filterung
-                console.log(event)
+                console.log(event.img_url)
                 tile.innerHTML = `
                     <div class="event-header">
                         <span class="event-category">${category}</span>
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p>Lorem ipsum dolor sit amet...</p>
                             
                             <a href="${event.link}" class="event-link-button">original source</a>
+                            <img src="${event.img_url}" alt="event picture" width="200" height="200">
 
                             <button class="more-info">view less</button>
                         </div>

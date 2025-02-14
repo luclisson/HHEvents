@@ -3,6 +3,9 @@ import { loadJSON } from './scraperCon.js';
 import cron from 'node-cron';
 import express from 'express';
 import cors from 'cors';
+import {exec} from 'child_process';
+import { stderr } from 'process';
+import fs from 'fs'
 
 
 const app = express()
@@ -64,24 +67,48 @@ app.get('/fetchData', async (req, res)=>{
     }
 })
 
-cron.schedule('39 20 * * *', async ()=>{
+cron.schedule('15 10 * * *', async ()=>{
     //fetches db everyday at 1.30am
+    //used on frontend
     const response = await fetch('http://localhost:3000/fetchData',{
         method: 'GET'
     });
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
 })
 
-cron.schedule('38 20 * * *', async ()=>{
+cron.schedule('15 10 * * *', async ()=>{
     //code to insert test data, later scraper data
     const response = await fetch('http://localhost:3000/insertData',{
         method: 'GET'
     });
     console.log(response)
 })
+cron.schedule('00 10 * * *', async()=>{
+    console.log('cron schedule has been called');
+    //clear last loaded data to not load it twice
+    clearJSONFile('./all_events.json');
+    //python script call main.py
+    exec('python3 ./scraper/main.py', (error, stdout, stderr)=>{
+        if(error)
+        {
+            console.error(`error executing the script: ${error.message}`);
+            return;
+        }
+        if(stderr)
+        {
+            console.log(`error while running the script: ${stderr}`);
+            return;
+        }
+        console.log(`script was successfully executed`);
+        console.log(`printed: ${stdout}`);
+    });
+})
 
-
-/*
-todos:
-- use data from db and update frontend
-*/
+function clearJSONFile(filePath) {
+    try {
+        fs.writeFileSync(filePath, '[]', 'utf8');
+        console.log(`Cleared JSON file: ${filePath}`);
+    } catch (error) {
+        console.error(`Error clearing JSON file: ${error.message}`);
+    }
+}
