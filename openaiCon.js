@@ -75,7 +75,8 @@ async function getSummaryOpenAi(url)
             max_tokens: 100,
             store: false,
         })
-        console.log(summary.choices[0].message.content)
+        //console.log(summary.choices[0].message.content)
+        return summary.choices[0].message.content
     }
     else
     {
