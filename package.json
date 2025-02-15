@@ -2,8 +2,10 @@
   "type": "module",
   "dependencies": {
     "@supabase/supabase-js": "^2.48.1",
+    "axios": "^1.7.9",
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "gpt-3-encoder": "^1.1.4",
     "html-dom-parser": "^5.0.13",
     "jsdom": "^26.0.0",
     "node-cron": "^3.0.3",
