@@ -7,6 +7,8 @@ import { encode, decode } from 'gpt-3-encoder';
 const openai = new OpenAI({
     apiKey: env.openai_api_key,
 });
+const testurl = ""
+//limit max tokens per request to ensure the request isnt to expensive
 function truncateText(text, maxTokens) {
     const encoded = encode(text);
     if (encoded.length > maxTokens) {
@@ -15,7 +17,7 @@ function truncateText(text, maxTokens) {
     }
     return text;
 }
-const url = "https://docksfreiheit36.de/event?slug=050a0c7a-f093-4ae9-917d-d36c81f6334c&clr=red";
+//receive html data of specific website
 async function fetchWebsiteText(url)
 {
     try
@@ -28,11 +30,17 @@ async function fetchWebsiteText(url)
             // Remove script and style tags
             html = html.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
             html = html.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '');
-            const splitIndex = html.indexOf('</head>') + 7; //removing everything before the body to not include css and script data
-            const substring = html.substring(splitIndex);
-            console.log(substring)
-            const text = truncateText(substring,400)
-            return substring;
+
+            // Remove class names
+            html = html.replace(/\sclass="[^"]*"/gi, '');
+
+            // Remove specific elements (footer, nav)
+            html = html.replace(/<footer[^>]*>[\s\S]*?<\/footer>/gi, '');
+            html = html.replace(/<nav[^>]*>[\s\S]*?<\/nav>/gi, '');
+
+            // Extract text content
+            html = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+            return truncateText(html,300);
         }
         
     }
@@ -42,7 +50,7 @@ async function fetchWebsiteText(url)
         return null;
     }
 }
-
+//call openai api and get request of parsed html data of url provided as an argument
 async function getSummaryOpenAi(url)
 {
     const data = await fetchWebsiteText(url);
@@ -75,5 +83,7 @@ async function getSummaryOpenAi(url)
     }
     
 }
-fetchWebsiteText(url)
+
+export {getSummaryOpenAi}
+//fetchWebsiteText(url)
 //getSummaryOpenAi(url)
