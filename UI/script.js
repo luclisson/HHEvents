@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="event-price">Ab ${event.fetchdata[0].price}€</span>
                         </div>
                         <div class="expandable-details">
-                            <p>Lorem ipsum dolor sit amet...</p>
+                            <p>${event.description}</p>
                             
                             <a href="${event.link}" class="event-link-button">original source</a>
                             <img src="${event.img_url}" alt="event picture" width="200" height="200">
