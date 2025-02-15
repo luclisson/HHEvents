@@ -7,7 +7,7 @@ import { encode, decode } from 'gpt-3-encoder';
 const openai = new OpenAI({
     apiKey: env.openai_api_key,
 });
-const testurl = ""
+const testurl = "https://vernetztgegenrechts.hamburg/event/fuehrung-und-gespraech-in-der-gedenkstaette-fuhlsbuettel-2/2025-03-16/"
 //limit max tokens per request to ensure the request isnt to expensive
 function truncateText(text, maxTokens) {
     const encoded = encode(text);
@@ -85,5 +85,5 @@ async function getSummaryOpenAi(url)
 }
 
 export {getSummaryOpenAi}
-//fetchWebsiteText(url)
-//getSummaryOpenAi(url)
+//fetchWebsiteText(testurl)
+//getSummaryOpenAi(testurl)

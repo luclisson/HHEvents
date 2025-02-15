@@ -58,6 +58,11 @@ async function insertDataToWebsitesTable(title, link,category, imgUrl, source, l
             break;
         }
     }
+    //if eventExists = false create summary openai api
+
+
+
+    
     console.log(`the event ${title} exist: ${eventExist}`)
     if(!eventExist)
     {
