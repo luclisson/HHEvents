@@ -1,3 +1,4 @@
+# docks_scraper.py
 from selenium.webdriver.common.by import By
 from base_scraper import BaseScraper
 from event import Event
@@ -6,16 +7,11 @@ import logging
 import re
 
 class DocksScraper(BaseScraper):
-    DATE_REGEX = re.compile(r"(\d{2}\.\d{2}\.\d{4})")
-    TIME_REGEX = re.compile(r"(\d{2}:\d{2})")
+    DATE_REGEX = re.compile(r"(\d{1,2}\.\d{1,2}\.\d{4})")
 
     def __init__(self, driver, page_type="docks"):
-        self.page_type = page_type
         location = "Docks Freiheit36" if page_type == "docks" else "Prinzenbar"
-        super().__init__(
-            driver=driver,
-            source_name=location
-        )
+        super().__init__(driver=driver, source_name=location)
         self.location = location
 
     def click_next_page(self, current_page: int) -> bool:
@@ -30,40 +26,45 @@ class DocksScraper(BaseScraper):
                 return True
             return False
         except Exception as e:
-            logging.error(f"Fehler bei der Paginierung auf Seite {current_page}: {str(e)}")
+            logging.error(f"Paginierungsfehler: {str(e)}")
             return False
 
     def parse_event(self, container) -> Event:
         try:
             title = container.find_element(By.CSS_SELECTOR, 'h5.card-title').text.strip()
             link_element = container.find_element(By.CSS_SELECTOR, 'a.btn-link')
-            link = link_element.get_attribute('href')
-            price = link_element.text.strip()
-            date_text = container.find_element(By.CSS_SELECTOR, 'p.card-text').text.strip()
             
-            # Datum und Zeit Separieren
-            date_match = self.DATE_REGEX.search(date_text)
-            time_match = self.TIME_REGEX.search(date_text)
+            meta_text = container.find_element(
+                By.CSS_SELECTOR, 'p.card-text'
+            ).text.strip()
             
+            # Kategorie und Datum extrahieren
+            if "|" in meta_text:
+                category, date_str = map(str.strip, meta_text.split("|", 1))
+            else:
+                category = "Veranstaltung"
+                date_str = meta_text
+                
+            date_match = self.DATE_REGEX.search(date_str)
             event_date = date_match.group(1) if date_match else "01.01.1970"
-            time = time_match.group(1) if time_match else "20:00"
-
-            try:
-                img_url = container.find_element(By.CSS_SELECTOR, 'img').get_attribute('src')
-            except Exception:
-                img_url = None
 
             return Event(
                 source_url=self.driver.current_url,
                 title=title,
-                link=link,
+                link=link_element.get_attribute('href'),
                 event_date=event_date,
-                time=time,
-                category="Konzert",
+                time="To be announced",
+                category=category,
                 location=self.location,
-                price=price,
-                img_url=img_url
+                price=link_element.text.strip(),
+                img_url=self._get_image_url(container)
             )
         except Exception as e:
-            logging.error(f"Fehler beim Parsen eines Events: {str(e)}")
+            logging.error(f"Parse-Fehler: {str(e)}")
+            return None
+
+    def _get_image_url(self, container):
+        try:
+            return container.find_element(By.CSS_SELECTOR, 'img').get_attribute('src')
+        except Exception:
             return None

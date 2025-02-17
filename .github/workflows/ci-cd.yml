@@ -1,0 +1,53 @@
+name: Event-Scraper CI/CD
+
+on:
+  push:
+    branches: [main, production]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10']
+        node: ['18']
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python }}
+      uses: actions/setup-python@v4
+
+    - name: Set up Node.js ${{ matrix.node }}
+      uses: actions/setup-node@v3
+
+    - name: Scraper Tests
+      run: |
+        cd scraper
+        pip install -r requirements.txt
+        pytest tests/ -v
+
+    - name: API Tests
+      run: |
+        cd api
+        npm ci
+        npm test
+
+  deploy-staging:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Deploy to Staging
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+       # host: ${{ secrets.STAGING_HOST }}
+       # key: ${{ secrets.STAGING_SSH_KEY }}
+        script: |
+          docker-compose -f docker-compose.staging.yml down
+          docker-compose -f docker-compose.staging.yml pull
+          docker-compose -f docker-compose.staging.yml up -d
