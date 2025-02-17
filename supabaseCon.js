@@ -1,7 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { getSummaryOpenAi } from './openaiCon.js';
 const envJson = fs.readFileSync('./env.json', 'utf8');
 const env = JSON.parse(envJson);
 
@@ -58,9 +57,16 @@ async function insertDataToWebsitesTable(title, link,category, imgUrl, source, l
             break;
         }
     }
+
     console.log(`the event ${title} exist: ${eventExist}`)
     if(!eventExist)
     {
+        //make api call
+        console.log(link)
+        const description = await getSummaryOpenAi(link);
+        console.log(description)
+        
+        
         const {error: insertError } = await supabase.from('events').insert(
             {
                 title: `${title}`,
@@ -68,7 +74,8 @@ async function insertDataToWebsitesTable(title, link,category, imgUrl, source, l
                 category: `${category}`,
                 img_url: `${imgUrl}`,
                 source: `${source}`,
-                location: `${location}`
+                location: `${location}`,
+                description: `${description}`
 
             }
         )
@@ -184,6 +191,7 @@ async function fetchAllDataDb()
 export {fetchLatestDataWebsite, insertDataFromScraperToDB, fetchAllDataDb}
 //testing functions
 //insertDataFromScraperToDB("newTest", "https:newnewnew.com", "test", "testing.com", "Hamburgo", "img.url", "0$", "13.02.2025", "12.02.1025-10.52", "11 00")
+
 //fetchLatestDataWebsite(3)
 //deleteOldData(3)
 //fetchAllDataDb();

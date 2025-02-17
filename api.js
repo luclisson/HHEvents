@@ -40,7 +40,7 @@ app.get('/fetch/:id', async (req, res) => {
 })
 app.get('/insertData', async (req, res) =>{
     const data = loadJSON('all_events.json');
-    for(let i = 0; i< 15; i++) //5 to not fetch 2000 entities
+    for(let i = 0; i< 1; i++) //1 to not fetch 2000 entities and because of api pricing...
     {
         insertDataFromScraperToDB(data[i].title, data[i].link,
             data[i].category, data[i].source_url, data[i].location, data[i].img_url, 
@@ -76,7 +76,7 @@ cron.schedule('15 10 * * *', async ()=>{
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
 })
 
-cron.schedule('15 10 * * *', async ()=>{
+cron.schedule('33 22 * * *', async ()=>{
     //code to insert test data, later scraper data
     const response = await fetch('http://localhost:3000/insertData',{
         method: 'GET'
