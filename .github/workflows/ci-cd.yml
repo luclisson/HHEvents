@@ -1,10 +1,10 @@
-name: Event-Scraper CI/CD
+name: Python Scraper CI
 
 on:
   push:
-    branches: [main]
+    branches: [Tim, main, Luc]
   pull_request:
-    branches: [main]
+    branches: [Tim, main, Luc]
 
 jobs:
   build-and-test:
@@ -12,36 +12,29 @@ jobs:
     strategy:
       matrix:
         python: ['3.10']
-        node: ['18']
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    # Set up Python environment for Scraper tests
     - name: Set up Python ${{ matrix.python }}
       uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python }}
+
+    - name: Install system dependencies
+      run: |
+        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+        sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge.list'
+        sudo apt-get update
+        sudo apt-get install -y microsoft-edge-stable
 
     - name: Install Python Dependencies
       run: |
-        cd Scraper
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Run Scraper Tests
+      working-directory: ./Scraper
       run: |
-        cd Scraper
-        pytest tests/ --cov=. --cov-report=term-missing
-
-    # Set up Node.js environment for API/UI tests
-    - name: Set up Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v3
-
-    - name: Install Node.js Dependencies
-      run: |
-        cd UI
-        npm ci
-
-    - name: Run API/UI Tests
-      run: |
-        cd UI
-        npm test -- --coverage
+        pytest tests/ --cov=. --cov-report=term-missing -v
