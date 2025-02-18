@@ -18,7 +18,7 @@ class Event:
         event_date: str,  # Format: DD.MM.YYYY
         time: str,        # Format: HH:MM
         category: str,
-        location: Optional [str] = None,    
+        location: Optional[str] = None,    
         price: Optional[str] = None,
         img_url: Optional[str] = None
     ):
@@ -33,14 +33,13 @@ class Event:
         self.event_date = self._parse_date(event_date)
         self.time = time
         self.category = category
-        self.location = location.strip()  # Pflichtfeld
+        self.location = location.strip() if location else None  # Pflichtfeld
         self.price = self._parse_price(price)
         self.img_url = img_url
         self.scraped_at = datetime.now().isoformat()
 
     def _parse_date(self, date_str: str) -> str:
         """Verarbeitet verschiedene Datumsformate"""
-        # Bereinige überflüssige Kommas
         cleaned_date = date_str.split(',')[0].strip()
         
         for fmt in self.DATE_FORMATS:
@@ -49,7 +48,13 @@ class Event:
                 return dt.isoformat()
             except ValueError:
                 continue
-        return cleaned_date  # Fallback
+        
+        # If no format matches, try to parse as German date format
+        try:
+            dt = datetime.strptime(cleaned_date, "%d.%m.%Y")
+            return dt.isoformat()
+        except ValueError:
+            return cleaned_date  # Fallback
 
     def _parse_price(self, price_str: Optional[str]) -> Optional[float]:
         """Konvertiert Preisangaben in Float"""
@@ -66,35 +71,24 @@ class Event:
             return None
 
     def to_dict(self):
-     return {
-        'source_url': self.source_url,
-        'title': self.title,
-        'link': self.link,
-        'event_date': self.event_date,
-        'time': self.time,
-        'category': self.category,
-        'location': self.location,
-        'price': self.price,
-        'img_url': self.img_url,
-        'scraped_at': self.scraped_at
-    }
+        return {
+            'source_url': self.source_url,
+            'title': self.title,
+            'link': self.link,
+            'event_date': self.event_date,
+            'time': self.time,
+            'category': self.category,
+            'location': self.location,
+            'price': self.price,
+            'img_url': self.img_url,
+            'scraped_at': self.scraped_at
+        }
 
     def save_to_json(self, filename: str):
         """Speichert das Event in einer JSON-Datei"""
         with open(filename, 'a', encoding='utf-8') as f:
             json.dump(self.to_dict(), f, ensure_ascii=False)
             f.write('\n')
-
-    # async def save_to_db(self, supabase_client):
-    #     """Speichert in Supabase-Datenbank"""
-    #     try:
-    #         response = await supabase_client.from_('events').insert(self.to_dict()).execute()
-    #         if not response.error:
-    #             print(f"Event '{self.title}' gespeichert")
-    #         else:
-    #             print(f"Datenbankfehler: {response.error.message}")
-    #     except Exception as e:
-    #         print(f"Kritischer Fehler: {str(e)}")
 
     def __repr__(self):
         return (

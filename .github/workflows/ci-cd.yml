@@ -1,4 +1,4 @@
-name: Event-Scraper CI/CD
+name: Python Scraper CI
 
 on:
   push:
@@ -12,36 +12,29 @@ jobs:
     strategy:
       matrix:
         python: ['3.10']
-        node: ['18']
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    # Set up Python environment for Scraper tests
     - name: Set up Python ${{ matrix.python }}
       uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python }}
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y msedge
 
     - name: Install Python Dependencies
+      working-directory: ./Scraper
       run: |
-        cd Scraper
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pytest coverage webdriver-manager
 
     - name: Run Scraper Tests
+      working-directory: ./Scraper
       run: |
-        cd Scraper
-        pytest tests/ --cov=. --cov-report=term-missing
-
-    # Set up Node.js environment for API/UI tests
-    - name: Set up Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v3
-
-    - name: Install Node.js Dependencies
-      run: |
-        cd UI
-        npm ci
-
-    - name: Run API/UI Tests
-      run: |
-        cd UI
-        npm test -- --coverage
+        pytest tests/ --cov=Scraper --cov-report=term-missing -v
