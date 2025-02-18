@@ -6,8 +6,7 @@
     <title>Hamburg Events</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' http://localhost:3000; img-src 'self' https://images.copilot.events;">
-</head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' http://localhost:3000; img-src 'self' https://images.copilot.events;"></head>
 <body>
     <!-- Splash Screen -->
     <div class="splash-screen">
@@ -36,10 +35,10 @@
                 <h1>Entdecke Hamburgs Eventvielfalt</h1>
                 <div class="filter-bar">
                     <button class="filter-btn active" data-category="alle">Alle Kategorien</button>
-                    <button class="filter-btn" data-category="musik">Musik</button>
-                    <button class="filter-btn" data-category="kunst">Kunst</button>
-                    <button class="filter-btn" data-category="sport">Sport</button>
-                    <button class="filter-btn" data-category="essen">Essen</button>
+                    <button class="filter-btn" data-category="konzert">Konzert</button>
+                    <button class="filter-btn" data-category="party">Party</button>
+                    <button class="filter-btn" data-category="demonstration">Demonstration</button>
+                    <button class="filter-btn" data-category="demokratie">Demokratie</button>
                 </div>
             </div>
         </section>
@@ -48,9 +47,11 @@
 
         <footer class="footer">
             <div class="social-links">
-                <a href="https://www.instagram.com/luc.liss/" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/luclisson/HHEvents" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/tim131103/" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/luc.liss/" class="social-link" title="Instagram Profile of Luc Liss"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/zoejmh_/" class="social-link" title="Instagram Profile of Luc Liss"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/luclisson/HHEvents" class="social-link" title="GitHub Repository of HHEvents"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/lykka_brggn/" class="social-link" title="Instagram Profile of Luc Liss"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/tim131103/" class="social-link" title="Instagram Profile of Tim"><i class="fab fa-instagram"></i></a>
             </div>
             <p>&copy; 2024 Hamburg Events</p>
         </footer>

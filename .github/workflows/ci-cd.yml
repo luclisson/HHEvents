@@ -1,0 +1,47 @@
+name: Event-Scraper CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10']
+        node: ['18']
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Set up Python environment for Scraper tests
+    - name: Set up Python ${{ matrix.python }}
+      uses: actions/setup-python@v4
+
+    - name: Install Python Dependencies
+      run: |
+        cd Scraper
+        pip install -r requirements.txt
+
+    - name: Run Scraper Tests
+      run: |
+        cd Scraper
+        pytest tests/ --cov=. --cov-report=term-missing
+
+    # Set up Node.js environment for API/UI tests
+    - name: Set up Node.js ${{ matrix.node }}
+      uses: actions/setup-node@v3
+
+    - name: Install Node.js Dependencies
+      run: |
+        cd UI
+        npm ci
+
+    - name: Run API/UI Tests
+      run: |
+        cd UI
+        npm test -- --coverage

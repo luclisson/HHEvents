@@ -63,7 +63,7 @@ def save_new_events(filename: str, new_events: List[Event], existing_events: Lis
 
 def main():
     logging.basicConfig(level=logging.INFO)
-    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager(log_level=logging.INFO).install()))
+    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
 
     try:
         json_filename = "all_events.json"

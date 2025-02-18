@@ -9,3 +9,4 @@ Test/Müll
 geckodriver.log
 event_log.txt
 Info_DB.txt
+node_modules

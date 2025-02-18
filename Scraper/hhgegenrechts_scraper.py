@@ -26,19 +26,9 @@ class HHgegenrechtsScraper(BaseScraper):
 
     def scrape(self, url):
         self.driver.get(url)
-        self._dismiss_cookie_banner()
         self._load_all_events()
         return super().scrape(url)
 
-    def _dismiss_cookie_banner(self):
-        try:
-            cookie_button = self.wait.until(
-                EC.element_to_be_clickable((By.ID, "cn-accept-cookie"))
-            )
-            cookie_button.click()
-            time.sleep(0.5)
-        except TimeoutException:
-            pass
 
     def _load_all_events(self):
         last_count = 0
@@ -54,8 +44,10 @@ class HHgegenrechtsScraper(BaseScraper):
                 self.driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", load_button)
                 self.driver.execute_script("arguments[0].click();", load_button)
                 self.wait.until(
-                    lambda d: len(d.find_elements(*self.container_selector)) > current_count
-                )
+                    lambda d: len(d.find_elements(*self.container_selector)) > 
+                    current_count and 
+                    d.execute_script("return document.readyState") == "complete")
+                
                 time.sleep(1)
             except TimeoutException:
                 logging.info("Keine weiteren Events verfügbar")
