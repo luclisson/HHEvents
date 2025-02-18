@@ -2,9 +2,9 @@ name: Python Scraper CI
 
 on:
   push:
-    branches: [tim]
+    branches: [Tim]
   pull_request:
-    branches: [tin]
+    branches: [Tim]
 
 jobs:
   build-and-test:
