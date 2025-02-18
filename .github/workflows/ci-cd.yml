@@ -30,11 +30,11 @@ jobs:
         sudo apt-get install -y microsoft-edge-stable
 
     - name: Install Python Dependencies
-      working-directory:
+      working-directory: 
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pytest coverage webdriver-manager
+        pip install pytest pytest-cov webdriver-manager
 
     - name: Run Scraper Tests
       working-directory: ./Scraper

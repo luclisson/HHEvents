@@ -17,6 +17,7 @@ webdriver-manager==3.5.2
 # Libary for testing web applications
 # Install with: pip install pytest==6.2.5
 pytest==6.2.5
+pytest-cov==4.0.0
 
 
 # pip install -r requirements.txt
