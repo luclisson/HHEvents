@@ -1,23 +1,35 @@
 # HTTP library for making requests
-# Install with: pip install requests==2.26.0
-requests==2.26.0
+requests==2.32.3
 
 # Library for parsing HTML and XML documents
-# Install with: pip install beautifulsoup4==4.10.0
-beautifulsoup4==4.10.0
+beautifulsoup4==4.13.3
 
 # Browser automation library
-# Install with: pip install selenium==4.1.0
-selenium==4.1.0
+selenium==4.28.1
 
 # Utility for managing WebDriver binaries
-# Install with: pip install webdriver-manager==3.5.2
-webdriver-manager==3.5.2
+webdriver-manager==4.0.2
 
-# Libary for testing web applications
-# Install with: pip install pytest==6.2.5
-pytest==6.2.5
-pytest-cov==4.0.0
+# Test framework
+pytest==8.3.4
+
+# Coverage plugin for pytest
+pytest-cov==6.0.0
+
+# Environment variable management
+python-dotenv==1.0.1
+
+# SSL and cryptography libraries (required by Selenium and urllib3)
+cryptography==44.0.1
+pyOpenSSL==25.0.0
+
+# URL and HTML parsing utilities
+urllib3==2.3.0
+soupsieve==2.6
+
+# Miscellaneous utilities
+colorama==0.4.6
+packaging==24.2
 
 
 # pip install -r requirements.txt
