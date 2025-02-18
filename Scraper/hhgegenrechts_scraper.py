@@ -26,7 +26,6 @@ class HHgegenrechtsScraper(BaseScraper):
 
     def scrape(self, url):
         self.driver.get(url)
-        self._dismiss_cookie_banner()
         self._load_all_events()
         return super().scrape(url)
 

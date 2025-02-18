@@ -2,7 +2,7 @@ name: Event-Scraper CI/CD
 
 on:
   push:
-    branches: [main, production]
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -18,36 +18,30 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
+    # Set up Python environment for Scraper tests
     - name: Set up Python ${{ matrix.python }}
       uses: actions/setup-python@v4
 
+    - name: Install Python Dependencies
+      run: |
+        cd Scraper
+        pip install -r requirements.txt
+
+    - name: Run Scraper Tests
+      run: |
+        cd Scraper
+        pytest tests/ --cov=. --cov-report=term-missing
+
+    # Set up Node.js environment for API/UI tests
     - name: Set up Node.js ${{ matrix.node }}
       uses: actions/setup-node@v3
 
-    - name: Scraper Tests
+    - name: Install Node.js Dependencies
       run: |
-        cd scraper
-        pip install -r requirements.txt
-        pytest tests/ -v
-
-    - name: API Tests
-      run: |
-        cd api
+        cd UI
         npm ci
-        npm test
 
-  deploy-staging:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-    - name: Deploy to Staging
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-       # host: ${{ secrets.STAGING_HOST }}
-       # key: ${{ secrets.STAGING_SSH_KEY }}
-        script: |
-          docker-compose -f docker-compose.staging.yml down
-          docker-compose -f docker-compose.staging.yml pull
-          docker-compose -f docker-compose.staging.yml up -d
+    - name: Run API/UI Tests
+      run: |
+        cd UI
+        npm test -- --coverage
