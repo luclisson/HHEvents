@@ -6,9 +6,9 @@ from selenium.webdriver.edge.options import Options
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-import sys
+import tempfile
 import os
+import sys
 
 # Add the parent folder (Scraper) to the search path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -53,11 +53,20 @@ def driver():
     options.add_argument("--headless")
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
-    options.add_argument("--user-data-dir=/tmp/chrome-data")
     
-    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
+    # Erstellen Sie ein einzigartiges temporäres Verzeichnis
+    temp_dir = tempfile.mkdtemp()
+    options.add_argument(f"--user-data-dir={temp_dir}")
+    
+    driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()), options=options)
     yield driver
     driver.quit()
+    
+    # Bereinigen Sie das temporäre Verzeichnis nach dem Test
+    try:
+        os.rmdir(temp_dir)
+    except OSError:
+        pass
 
 def test_base_scraper_scrape(driver):
     html_content = """
