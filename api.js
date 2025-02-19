@@ -112,3 +112,5 @@ function clearJSONFile(filePath) {
         console.error(`Error clearing JSON file: ${error.message}`);
     }
 }
+
+export default app;
