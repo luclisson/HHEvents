@@ -40,11 +40,15 @@ app.get('/fetch/:id', async (req, res) => {
 })
 app.get('/insertData', async (req, res) =>{
     const data = loadJSON('all_events.json');
-    for(let i = 0; i< 1; i++) //1 to not fetch 2000 entities and because of api pricing...
-    {
-        insertDataFromScraperToDB(data[i].title, data[i].link,
-            data[i].category, data[i].source_url, data[i].location, data[i].img_url, 
-            data[i].price, data[i].event_date, data[i].scraped_at, data[i].time);
+    for(let i = 0; i< data.length; i++) //1 to not fetch 2000 entities and because of api pricing...
+    {   
+        if((i>=0 && i<5) || (i>=62 && i<67) || (i>=69 && i<76) || (i>=120 && i<125) )
+        {
+            insertDataFromScraperToDB(data[i].title, data[i].link,
+                data[i].category, data[i].source_url, data[i].location, data[i].img_url, 
+                data[i].price, data[i].event_date, data[i].scraped_at, data[i].time);
+        }
+        
             
     }
     if(!data)
@@ -76,14 +80,14 @@ cron.schedule('15 10 * * *', async ()=>{
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
 })
 
-cron.schedule('33 22 * * *', async ()=>{
+cron.schedule('47 19 * * *', async ()=>{
     //code to insert test data, later scraper data
     const response = await fetch('http://localhost:3000/insertData',{
         method: 'GET'
     });
     console.log(response)
 })
-cron.schedule('00 10 * * *', async()=>{
+cron.schedule('35 19 * * *', async()=>{
     console.log('cron schedule has been called');
     //clear last loaded data to not load it twice
     clearJSONFile('./all_events.json');

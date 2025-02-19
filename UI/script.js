@@ -43,13 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('http://localhost:3000/fetchData');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
-    
+            console.log(data)
+            console.log(`length: ${data.length}`)
+            let counter = 1;
             data.forEach(event => {
+                if(typeof(event)!= 'string'){
+                    console.log(`counter: ${counter}`)
+                counter++;
                 const tile = document.createElement('div');
                 tile.className = 'event-tile';
                 
                 // Kategorien-Mapping
-                const originalCategories = event.category.split(',')
+                try{
+                    const originalCategories = event.category.split(',')
                     .map(c => c.trim().toLowerCase());
                 
                 const mappedCategories = new Set();
@@ -73,6 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 tile.dataset.category = Array.from(mappedCategories).join(' ');
+                }catch(error){
+                    console.error('error with category', error)
+                }
+                
 
                 tile.innerHTML = `
                     <div class="event-header">
@@ -98,6 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
                 eventContainer.appendChild(tile);
+                }
+                
             });
         } catch (error) {
             console.error('Error fetching events:', error);
