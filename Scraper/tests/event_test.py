@@ -26,7 +26,7 @@ def test_event_initialization():
     assert event.source_url == "https://example.com"
     assert event.title == "Test Event"
     assert event.link == "https://example.com/event"
-    assert event.event_date == "2025-03-01T00:00:00"
+    assert event.event_date == "2025-03-01"
     assert event.time == "20:00"
     assert event.category == "Test Category"
     assert event.location == "Test Location"
