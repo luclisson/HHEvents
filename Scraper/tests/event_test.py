@@ -1,6 +1,5 @@
 import pytest
 from datetime import datetime
-
 import sys
 import os
 
@@ -26,26 +25,73 @@ def test_event_initialization():
     assert event.source_url == "https://example.com"
     assert event.title == "Test Event"
     assert event.link == "https://example.com/event"
-    assert event.event_date == "2025-03-01"
+    assert event.event_date == "01.03.2025"  # German date format
     assert event.time == "20:00"
     assert event.category == "Test Category"
     assert event.location == "Test Location"
     assert event.price == 10.50
     assert event.img_url == "https://example.com/image.jpg"
 
-def test_date_parsing():
-    event1 = Event(source_url="", title="", link="", event_date="2025-03-01T20:00", time="", category="", location="")
-    event2 = Event(source_url="", title="", link="", event_date="01.03.2025 20:00", time="", category="", location="")
-    event3 = Event(source_url="", title="", link="", event_date="2025-03-01", time="", category="", location="")
+def test_date_time_parsing():
+    # Test with combined date-time string
+    event1 = Event(
+        source_url="", 
+        title="", 
+        link="", 
+        event_date="01.03.2025 20:30",  # German format with time
+        time="", 
+        category="", 
+        location=""
+    )
     
-    assert event1.event_date == "2025-03-01T20:00:00"
-    assert event2.event_date == "2025-03-01T20:00:00"
-    assert event3.event_date == "2025-03-01T00:00:00"
+    # Test ISO format with time
+    event2 = Event(
+        source_url="", 
+        title="", 
+        link="", 
+        event_date="2025-03-01T20:30", 
+        time="", 
+        category="", 
+        location=""
+    )
+    
+    assert event1.event_date == "01.03.2025"
+    assert event1.time == "20:30"  # Time should be extracted
+    
+    assert event2.event_date == "01.03.2025"
+    assert event2.time == "20:30"  # Time should be extracted
 
 def test_price_parsing():
-    event1 = Event(source_url="", title="", link="", event_date="", time="", category="", location="", price="10.50€")
-    event2 = Event(source_url="", title="", link="", event_date="", time="", category="", location="", price="10,50 EUR")
-    event3 = Event(source_url="", title="", link="", event_date="", time="", category="", location="", price=None)
+    event1 = Event(
+        source_url="", 
+        title="", 
+        link="", 
+        event_date="", 
+        time="", 
+        category="", 
+        location="", 
+        price="10.50€"
+    )
+    event2 = Event(
+        source_url="", 
+        title="", 
+        link="", 
+        event_date="", 
+        time="", 
+        category="", 
+        location="", 
+        price="10,50 EUR"
+    )
+    event3 = Event(
+        source_url="", 
+        title="", 
+        link="", 
+        event_date="", 
+        time="", 
+        category="", 
+        location="", 
+        price=None
+    )
     
     assert event1.price == 10.50
     assert event2.price == 10.50
@@ -66,36 +112,67 @@ def test_to_dict():
     event_dict = event.to_dict()
     
     assert isinstance(event_dict, dict)
-    assert event_dict['title'] == "Test Event"
+    assert event_dict['event_date'] == "01.03.2025"
+    assert event_dict['time'] == "20:00"
     assert event_dict['price'] == 10.50
 
 def test_event_equality():
-    event1 = Event(source_url="", title="Event", link="https://example.com", event_date="01.03.2025", time="20:00", category="", location="")
-    event2 = Event(source_url="", title="Event", link="https://example.com", event_date="01.03.2025", time="20:00", category="", location="")
-    event3 = Event(source_url="", title="Different Event", link="https://example.com", event_date="02.03.2025", time="21:00", category="", location="")
+    event1 = Event(
+        source_url="", 
+        title="Event", 
+        link="https://example.com", 
+        event_date="01.03.2025", 
+        time="20:00", 
+        category="", 
+        location=""
+    )
+    event2 = Event(
+        source_url="", 
+        title="Event", 
+        link="https://example.com", 
+        event_date="01.03.2025", 
+        time="20:00", 
+        category="", 
+        location=""
+    )
+    event3 = Event(
+        source_url="", 
+        title="Different Event", 
+        link="https://example.com", 
+        event_date="02.03.2025", 
+        time="21:00", 
+        category="", 
+        location=""
+    )
     
     assert event1 == event2
     assert event1 != event3
 
-
-
-def _parse_date(self, date_str: str) -> str:
-    """Verarbeitet verschiedene Datumsformate"""
-    cleaned_date = date_str.split(',')[0].strip()
+def test_time_parsing_edge_cases():
+    # Test time without leading zero
+    event1 = Event(
+        source_url="", 
+        title="", 
+        link="", 
+        event_date="01.03.2025 9:30", 
+        time="", 
+        category="", 
+        location=""
+    )
     
-    for fmt in self.DATE_FORMATS:
-        try:
-            dt = datetime.strptime(cleaned_date, fmt)
-            return dt.isoformat()
-        except ValueError:
-            continue
+    # Test midnight
+    event2 = Event(
+        source_url="", 
+        title="", 
+        link="", 
+        event_date="01.03.2025 00:00", 
+        time="", 
+        category="", 
+        location=""
+    )
     
-    # If no format matches, try to parse as German date format
-    try:
-        dt = datetime.strptime(cleaned_date, "%d.%m.%Y")
-        return dt.isoformat()
-    except ValueError:
-        return cleaned_date  # Fallback
+    assert event1.time == "09:30"  # Leading zero added
+    assert event2.time == "00:00"
 
 if __name__ == "__main__":
     pytest.main()
