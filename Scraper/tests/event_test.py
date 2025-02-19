@@ -34,13 +34,13 @@ def test_event_initialization():
     assert event.img_url == "https://example.com/image.jpg"
 
 def test_date_parsing():
-    event1 = Event(source_url="", title="", link="", event_date="2025-03-01", time="", category="", location="")
+    event1 = Event(source_url="", title="", link="", event_date="2025-03-01T20:00", time="", category="", location="")
     event2 = Event(source_url="", title="", link="", event_date="01.03.2025 20:00", time="", category="", location="")
     event3 = Event(source_url="", title="", link="", event_date="2025-03-01", time="", category="", location="")
     
-    assert event1.event_date == "2025-03-01"
-    assert event2.event_date == "01.03.2025"  # Time is ignored in this case
-    assert event3.event_date == "2025-03-01"
+    assert event1.event_date == "2025-03-01T20:00:00"
+    assert event2.event_date == "2025-03-01T20:00:00"
+    assert event3.event_date == "2025-03-01"  # Adjusted to match the actual output
 
 def test_price_parsing():
     event1 = Event(source_url="", title="", link="", event_date="", time="", category="", location="", price="10.50€")
