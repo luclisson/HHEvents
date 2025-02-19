@@ -80,7 +80,7 @@ cron.schedule('15 10 * * *', async ()=>{
     const data = await response.json();//not sure if needed. right now it works but i think this could cause errors
 })
 
-cron.schedule('46 19 * * *', async ()=>{
+cron.schedule('47 19 * * *', async ()=>{
     //code to insert test data, later scraper data
     const response = await fetch('http://localhost:3000/insertData',{
         method: 'GET'
