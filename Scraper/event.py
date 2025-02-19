@@ -52,7 +52,8 @@ class Event:
         # If no format matches, try to parse as German date format
         try:
             dt = datetime.strptime(cleaned_date, "%d.%m.%Y")
-            return dt.isoformat()
+            return dt.strftime("%d.%m.%Y")  # Instead of dt.isoformat()
+
         except ValueError:
             return cleaned_date  # Fallback
 
